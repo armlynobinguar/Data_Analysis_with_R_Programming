@@ -18,3 +18,4 @@ n_rows_clean <- nrow(monster_jobs_clean)
 names_clean <- colnames(monster_jobs_clean)
 
 monster_jobs_clean_head <- head(monster_jobs_clean)
+monster_jobs_clean_tail <- tail(monster_jobs_clean)
