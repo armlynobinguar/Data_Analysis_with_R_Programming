@@ -34,3 +34,12 @@ is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
 extra_is_stem_classes  <- c(TRUE, FALSE, FALSE)
 new_is_stem_classes_end <- c(is_stem_classes, extra_is_stem_classes)
 new_is_stem_classes_start <- c(extra_is_stem_classes, is_stem_classes)
+
+exam_grades <- c(92, 90, 84, 95, 77, 92, 85)
+homework_grades <- c(87, 81, 95, 86, 85, 90, 88)
+project_grades <- c(85, 92, 79, 93, 90, 91, 95)
+# Add your code below
+
+class_scores_sum <- exam_grades + homework_grades + project_grades
+
+class_scores_avg <- class_scores_sum / 3
