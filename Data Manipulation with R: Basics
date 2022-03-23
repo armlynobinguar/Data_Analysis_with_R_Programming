@@ -27,3 +27,10 @@ salary_max_viz <- qplot(x = job_id,
       data = monster_jobs_clean)
 
 salary_max_viz
+
+salary_max_with_color_viz <- qplot(x = job_id,
+      y = salary_max,
+      color = job_type,
+      data = monster_jobs_clean)
+
+salary_max_with_color_viz
