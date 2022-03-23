@@ -16,3 +16,5 @@ monster_jobs_clean <- read_csv("monster_jobs_clean.csv")
 n_cols_clean <- ncol(monster_jobs_clean)
 n_rows_clean <- nrow(monster_jobs_clean)
 names_clean <- colnames(monster_jobs_clean)
+
+monster_jobs_clean_head <- head(monster_jobs_clean)
