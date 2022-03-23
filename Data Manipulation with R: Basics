@@ -7,3 +7,7 @@ col_4_type <- "numeric"
 q_1 <- FALSE
 q_2 <- TRUE
 q_3 <- FALSE #we can use it by surrounding the string with quotation marks.
+
+library(readr)
+# Add your code below
+monster_jobs_clean <- read_csv("monster_jobs_clean.csv")
