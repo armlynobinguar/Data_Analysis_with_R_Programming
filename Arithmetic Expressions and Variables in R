@@ -23,3 +23,7 @@ q_2 <- TRUE
 q_3 <- FALSE
 q_4 <- FALSE
 q_5 <- FALSE
+
+total_purchase_cost <- 10.50 * 200L + 21.15 * 50L + 3.20 * 500L
+total_selling_cost <- 12.10 * 200 + 24.90 * 50 + 4.99 * 500
+profit_1 <- total_selling_cost - total_purchase_cost
