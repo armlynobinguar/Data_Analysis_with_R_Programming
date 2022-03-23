@@ -12,3 +12,8 @@ logical_var <- apple_sold == lemon_sold
 TRUE || FALSE
 FALSE && TRUE
 !FALSE
+
+apple_profit <- 12.10 - 10.50
+mango_profit <- 24.90 - 21.15
+lemon_profit <- 4.99 - 3.20
+logical_var <- apple_profit <= mango_profit || apple_profit > lemon_profit
