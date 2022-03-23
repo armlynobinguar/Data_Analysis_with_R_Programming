@@ -13,3 +13,9 @@ exam_grades <- c(92, 90, 84, 95, 77, 92, 85)
 math_exam_grade <- math_grades[1]
 desired_exam_grades <- exam_grades[c(2, 3, 6)]
 non_stem_exam_grades <- exam_grades[c(3:7)]
+
+is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
+# Add your code below
+
+homework_grades <- c(87, 81, 95, 86, 85, 90, 88)
+preferred_homework_grades <- homework_grades[is_stem_classes]
