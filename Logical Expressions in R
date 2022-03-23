@@ -1,3 +1,6 @@
 FALSE
 TRUE
 FALSE
+
+12L > 24L
+10.50 == 21.15
