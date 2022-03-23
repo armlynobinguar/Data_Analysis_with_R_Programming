@@ -3,3 +3,7 @@ library(readr)
 dataset_n_cols <- 5L
 col_3_name <- "salary_min"
 col_4_type <- "numeric"
+
+q_1 <- FALSE
+q_2 <- TRUE
+q_3 <- FALSE #we can use it by surrounding the string with quotation marks.
