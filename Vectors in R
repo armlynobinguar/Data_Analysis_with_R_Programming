@@ -27,3 +27,10 @@ is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
 
 math_grades[2] <- 80L
 exam_grades[is_stem_classes]  <- 92
+
+is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
+# Add your code below
+
+extra_is_stem_classes  <- c(TRUE, FALSE, FALSE)
+new_is_stem_classes_end <- c(is_stem_classes, extra_is_stem_classes)
+new_is_stem_classes_start <- c(extra_is_stem_classes, is_stem_classes)
