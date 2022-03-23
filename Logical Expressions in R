@@ -8,3 +8,7 @@ FALSE
 apple_sold <- 12.10 * 12L
 lemon_sold <- 4.99 * 24L
 logical_var <- apple_sold == lemon_sold
+
+TRUE || FALSE
+FALSE && TRUE
+!FALSE
