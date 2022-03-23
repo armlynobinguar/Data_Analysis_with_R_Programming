@@ -15,3 +15,11 @@ FALSE
 "numeric"
 "numeric"
 "integer"
+
+q_0 <- FALSE
+
+q_1 <- FALSE
+q_2 <- TRUE
+q_3 <- FALSE
+q_4 <- FALSE
+q_5 <- FALSE
