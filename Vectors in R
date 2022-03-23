@@ -19,3 +19,11 @@ is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
 
 homework_grades <- c(87, 81, 95, 86, 85, 90, 88)
 preferred_homework_grades <- homework_grades[is_stem_classes]
+
+math_grades <- c(92L, 87L, 85L)
+exam_grades <- c(92, 90, 84, 95, 77, 92, 85)
+is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
+# Add your code below
+
+math_grades[2] <- 80L
+exam_grades[is_stem_classes]  <- 92
