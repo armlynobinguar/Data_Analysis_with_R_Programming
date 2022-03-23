@@ -1,1 +1,5 @@
 library(readr)
+
+dataset_n_cols <- 5L
+col_3_name <- "salary_min"
+col_4_type <- "numeric"
