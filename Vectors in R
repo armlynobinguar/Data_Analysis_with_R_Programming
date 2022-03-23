@@ -1,3 +1,7 @@
 vector_1 <- rep(4, times = 10)
 vector_2 <- 1:12
 vector_3 <- seq(from = 2.0, to = 5.50, by = 0.25)
+
+math_grades <- c(92L, 87L, 85L)
+exam_grades <- c(92, 90, 84, 95, 77, 92, 85)
+is_stem_classes <- c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE)
