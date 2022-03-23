@@ -19,3 +19,11 @@ names_clean <- colnames(monster_jobs_clean)
 
 monster_jobs_clean_head <- head(monster_jobs_clean)
 monster_jobs_clean_tail <- tail(monster_jobs_clean)
+
+library(ggplot2)
+
+salary_max_viz <- qplot(x = job_id,
+      y = salary_max,
+      data = monster_jobs_clean)
+
+salary_max_viz
