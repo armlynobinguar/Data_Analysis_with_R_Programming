@@ -52,3 +52,14 @@ project_grades <- c(85, 92, 79, 93, 90, 91, 95)
 class_scores_sum_recycled <- exam_grades + homework_grades + project_grades
 
 class_scores_avg_recycled <- class_scores_sum_recycled / 3
+
+exam_grades <- c(92, 90, 84, 95, 77, 92, 85)
+homework_grades <- c(87, 81, 95, 86, 85, 90, 88)
+project_grades <- c(85, 92, 79, 93, 90, 91, 95)
+
+class_names <- c("math", "chemistry", "writing", "art", "history", "music", "physical_education")
+# Add your code below
+
+names(exam_grades) <- class_names
+names(homework_grades) <- class_names
+names(project_grades) <- class_names
