@@ -11,3 +11,8 @@ q_3 <- FALSE #we can use it by surrounding the string with quotation marks.
 library(readr)
 # Add your code below
 monster_jobs_clean <- read_csv("monster_jobs_clean.csv")
+
+#monster_jobs_clean  is available from the previous screen
+n_cols_clean <- ncol(monster_jobs_clean)
+n_rows_clean <- nrow(monster_jobs_clean)
+names_clean <- colnames(monster_jobs_clean)
