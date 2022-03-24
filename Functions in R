@@ -1,0 +1,16 @@
+first_vec <- c(1, 5, 4, 2, 3, 7, 6)
+second_vec <- c(9, 2, 1, 8, 3, 4, 5, 6, 10, 7, 12, 11)
+third_vec <- c(8, 3, 5, 1, 7, 1, 10)
+find_longer_vector <- function(vec_one, vec_two) {
+
+  if (length(vec_one) > length(vec_two)) {
+      return("First")
+  } else if (length(vec_one) < length(vec_two)) {
+      return("Second")
+  } else {
+      return("Equal Length")
+  }
+}
+
+first_vs_second <- find_longer_vector(first_vec, second_vec)
+first_vs_third <- find_longer_vector(first_vec, third_vec)
