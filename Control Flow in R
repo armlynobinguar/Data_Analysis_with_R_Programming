@@ -15,3 +15,12 @@ new_recent_grads <- recent_grads %>%
     median_level = if_else(Median > 50000, "Above Average", "Below Average"),
     greater_prop_gender = if_else(Women > Men, "Women", "Men")
   )
+
+wpm <- 70
+if (wpm < 58) {
+  classification <- "Below Average"
+} else if (wpm > 82) {
+  classification <- "Above Average"
+} else {
+  classification <- "Average"
+}
