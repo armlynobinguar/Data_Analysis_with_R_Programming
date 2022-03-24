@@ -33,3 +33,11 @@ recent_grads <- recent_grads %>%
   mutate(
     is_arts = str_detect(Major, "ARTS")
   )
+
+library(tidyverse)
+
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+recent_grads <- recent_grads %>%
+  mutate(
+    Major_category = str_replace(Major_category, "Engineering", "Engr.")
+  )
