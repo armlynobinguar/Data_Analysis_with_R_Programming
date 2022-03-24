@@ -38,3 +38,17 @@ new_recent_grads <- recent_grads %>%
     prop_women = Women / Total,
     prop_women_gt_employed = prop_women > prop_employed
   )
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+least_employed <- recent_grads %>%
+  mutate(
+    prop_employed = Employed / Total
+  ) %>% 
+  arrange(prop_employed) %>% 
+  select(Major, Employed, Total, prop_employed)
+    
+head(least_employed)
+
+least_employed_major <- "MILITARY TECHNOLOGIES"
