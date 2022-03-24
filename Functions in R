@@ -14,3 +14,15 @@ find_longer_vector <- function(vec_one, vec_two) {
 
 first_vs_second <- find_longer_vector(first_vec, second_vec)
 first_vs_third <- find_longer_vector(first_vec, third_vec)
+
+is_divisible <- function(dividend, divisor) {
+  whole <- floor(dividend / divisor)
+  rem <- dividend - (whole * divisor)
+  
+  if (rem == 0) {
+      return(TRUE)
+  } else {
+      return(FALSE)
+  }
+}
+div_5731_by_11 <- is_divisible(5731, 11)
