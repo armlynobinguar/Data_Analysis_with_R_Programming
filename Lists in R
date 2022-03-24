@@ -46,3 +46,13 @@ names(first_years) <- c("fall", "spring")
 
 chess_club[["first_years"]] <- first_years
 chess_club$first_years[[2]]
+
+chess_club <- list("club_title" = c("Chess Club"), 
+                   "club_description" = c("Meets two nights a week for members to play chess. Snacks are provided."), 
+                   "club_dues" = c(50, 20, 15), 
+                   "club_meetings" = rbind(c("Monday", "Wednesday"),  c("6:00 pm", "8:00 pm")),
+                   "first_years" = c("fall" = 12, "spring" = 15))
+# Type your code below
+
+chess_club_without_1 <- chess_club[-1]
+chess_club_without_34 <- chess_club[c(-3, -4)]
