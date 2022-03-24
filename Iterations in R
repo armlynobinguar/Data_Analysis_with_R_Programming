@@ -14,3 +14,14 @@ for (i in indices) {
   calc <- millimeter_measurements[i] / 1000
   meter_measurements[i] <- calc
 }
+
+prices <- c(138.19, 82.72, 118.97, 77.55, 62.28, 89.71, 97.36, 91.98, 113.45, 73.93)
+is_below_70 <- FALSE
+i <- 1
+while (!is_below_70) {
+  current_price <- prices[i]
+  is_below_70 <- current_price < 70
+  i = i + 1
+}
+
+buy_price <- current_price
