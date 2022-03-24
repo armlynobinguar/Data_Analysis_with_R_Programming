@@ -9,3 +9,7 @@ columbia <- c(6,13,13,12,4)
 category_names <- c("world_rank", "quality_of_education", "influence", "broad_impact", "patents")
 university_matrix <- rbind(harvard, stanford, MIT, cambridge, oxford, columbia)
 colnames(university_matrix) <- category_names
+
+university_clubs <- list("ballroom dancing","rugby","bird watching", "pottery")
+mit_list <- list("MIT", c(3,3,2,2,1), TRUE)
+mit_named_list <- list(name = "MIT", ranking = c(3,3,2,2,1), is_in_usa = TRUE)
