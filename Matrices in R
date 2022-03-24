@@ -6,3 +6,12 @@ vector_3 <- seq(from = 2.0, to = 5.50, by = 0.25) # [1] 2.00 2.25 .. 5.25 5.50
 matrix_1 <- matrix(vector_1, nrow = 2) # We can also set `ncol` to 2 or use both parameters
 matrix_2 <- matrix(vector_2, ncol = 3) # We can also set `nrow` to 4 or use both parameters
 matrix_3 <- matrix(vector_3, nrow = 3, ncol = 5, byrow = TRUE) # We set both parameters and set the `byrow` parameter to TRUE. Of course, we can also use either nrow or ncol and it will be okay.
+
+world_rank <- c(1, 2, 3, 4, 5, 6)
+quality_of_education <- c(1, 9, 3, 2, 7, 13)
+influence <- c(1, 3, 2, 6, 12, 13)
+broad_impact <- c(1, 4, 2, 13, 9, 12)
+patents <- c(3, 10, 1, 48, 15, 4)
+# Type your code below
+
+university_matrix <- cbind(world_rank, quality_of_education, influence, broad_impact, patents)
