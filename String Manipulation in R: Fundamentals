@@ -8,3 +8,11 @@ library(tidyverse)
 recent_grads <- read_csv("recent_grads.csv", col_types = cols())
 lower_case_colnames <- str_to_lower(colnames(recent_grads))
 colnames(recent_grads) <- lower_case_colnames
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+colnames(recent_grads) <- tolower(colnames(recent_grads))
+recent_grads <- recent_grads %>%
+  mutate(
+    formatted_major_code = str_pad(major_code, 7, pad = "0")
+  )
