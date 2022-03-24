@@ -42,3 +42,15 @@ new_recent_grads <- recent_grads %>%
       Unemployment_rate >= 0.1 ~ "High"
     )
   )
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+arts_grads <- recent_grads %>% 
+  filter(
+    Major_category %in% c("Arts", "Humanities & Liberal Arts")
+  )
+
+non_engineering_science_grads <- recent_grads %>% 
+  filter(
+    !(Major_category %in% c("Engineering", "Physical Sciences"))
+  )
