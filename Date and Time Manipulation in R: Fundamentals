@@ -3,3 +3,9 @@ date1 <- "01011970" # should be January 1, 1970
 date2 <- "2019-03-04" # should be March 4, 2019
 date_standardized1 <- mdy(date1)
 date_standardized2 <- ymd(date2)
+
+library(lubridate)
+datetime1 <- "01-01-1970-00-00-00" # should be January 1, 1970 at midnight
+datetime2 <- "2019-03-14 1:59 AM" # should be March 14, 2019, 1:59 AM
+datetime_standardized1 <- mdy_hms(datetime1)
+datetime_standardized2 <- ymd_hm(datetime2)
