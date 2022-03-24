@@ -1,0 +1,9 @@
+
+library(tidyverse)
+# Supply col_types = cols() to suppress column specification output
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+if (nrow(recent_grads) > 1000) { 
+  data_size <- "Large"
+} else {
+  data_size <- "Small"
+}
