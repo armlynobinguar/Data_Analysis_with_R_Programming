@@ -13,3 +13,14 @@ colnames(university_matrix) <- category_names
 university_clubs <- list("ballroom dancing","rugby","bird watching", "pottery")
 mit_list <- list("MIT", c(3,3,2,2,1), TRUE)
 mit_named_list <- list(name = "MIT", ranking = c(3,3,2,2,1), is_in_usa = TRUE)
+
+club_title <- c("Chess Club")
+club_description <- c("Meets two nights a week for members to play chess. Snacks are provided.")
+club_dues <- c(50, 20, 15)
+meeting_days <- c("Monday", "Wednesday")
+meeting_times <- c("6:00 pm", "8:00 pm")
+
+# Type your code below
+
+club_meetings <- rbind(meeting_days, meeting_times)
+chess_club <- list(club_title, club_description, club_dues, club_meetings)
