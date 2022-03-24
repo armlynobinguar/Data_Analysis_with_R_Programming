@@ -3,4 +3,14 @@ meter_measurements <- c()
 for (measurement in millimeter_measurements) {
   meter <- measurement / 1000
   meter_measurements <- c(meter_measurements, meter)
+ 
+}
+
+millimeter_measurements <- c(10000, 54900, 94312, 49185, 2100)
+meter_measurements <- integer(length(millimeter_measurements))
+indices <- 1:length(millimeter_measurements)
+
+for (i in indices) {
+  calc <- millimeter_measurements[i] / 1000
+  meter_measurements[i] <- calc
 }
