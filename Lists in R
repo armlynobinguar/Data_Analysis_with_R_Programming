@@ -56,3 +56,5 @@ chess_club <- list("club_title" = c("Chess Club"),
 
 chess_club_without_1 <- chess_club[-1]
 chess_club_without_34 <- chess_club[c(-3, -4)]
+
+university_clubs <- list(rugby_club = rugby_club, ballroom_dancing = ballroom_dancing, chess_club = chess_club)
