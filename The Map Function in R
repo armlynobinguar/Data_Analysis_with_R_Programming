@@ -93,3 +93,13 @@ student_scores <- student_scores %>%
   mutate(
     adjusted_math_score = unlist(map2(new_math_score, math_extra_credit, add_extra_credit))
   )
+
+library(tidyverse)
+input_list <- list(
+  1:10,
+  11:20,
+  21:30, 
+  31:40,
+  41:50
+)
+averages <- map(input_list, mean)
