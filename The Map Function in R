@@ -60,3 +60,36 @@ add_extra_credit <- function(score, note) {
 no_extra_credit_score <- add_extra_credit(input_score, "None")
 low_extra_credit_score <- add_extra_credit(input_score, "Low")
 high_extra_credit_score <- add_extra_credit(input_score, "High")
+
+library(tidyverse)
+student_scores <- read_csv("scores.csv", col_types = cols())
+
+format_score <- function(score) {
+  fmt_string <- str_replace(score, "%", "")
+  num <- as.numeric(fmt_string)
+  
+  return(num)
+}
+
+student_scores <- student_scores %>%
+  mutate(
+    new_writing_score = unlist(map(writing_score, format_score)),
+    new_math_score = unlist(map(math_score, format_score)),
+    new_science_score = unlist(map(science_score, format_score))
+  )
+
+add_extra_credit <- function(score, note) {
+  if (note == "None") {
+      points_to_add <- 0
+  } else if (note == "Low") {
+      points_to_add <- 1
+  } else {
+      points_to_add <- 5
+  }
+    
+  return(score + points_to_add)
+}
+student_scores <- student_scores %>%
+  mutate(
+    adjusted_math_score = unlist(map2(new_math_score, math_extra_credit, add_extra_credit))
+  )
