@@ -103,3 +103,11 @@ input_list <- list(
   41:50
 )
 averages <- map(input_list, mean)
+
+high_scores_by_student <- student_scores %>%
+  group_by(names) %>%
+  summarize(
+    highest_writing = max(new_writing_score),
+    highest_math = max(adjusted_math_score),
+    highest_science = max(new_science_score)
+  )
