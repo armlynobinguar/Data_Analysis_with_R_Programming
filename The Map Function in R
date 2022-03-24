@@ -2,3 +2,14 @@ library(tidyverse)
 student_scores <- read_csv("scores.csv")
 # Optional approach to suppress column specification output:
 # student_scores <- read_csv("scores.csv", col_types = cols())
+
+library(tidyverse)
+percent_string <- "74%"
+format_score <- function(score) {
+  fmt_string <- str_replace(score, "%", "")
+  num <- as.numeric(fmt_string)
+  
+  return(num)
+}
+
+converted_string <- format_score(percent_string)
