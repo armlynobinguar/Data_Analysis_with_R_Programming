@@ -1,0 +1,5 @@
+library(lubridate)
+date1 <- "01011970" # should be January 1, 1970
+date2 <- "2019-03-04" # should be March 4, 2019
+date_standardized1 <- mdy(date1)
+date_standardized2 <- ymd(date2)
