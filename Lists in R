@@ -38,3 +38,11 @@ club_second_due <- chess_club[[c(3,2)]]
 
 chess_club[[c(3, 3)]] <- 5
 chess_club[[c(3, 3)]]
+
+first_years <- c(12, 15)
+names(first_years) <- c("fall", "spring")
+# Type your code below
+
+
+chess_club[["first_years"]] <- first_years
+chess_club$first_years[[2]]
