@@ -25,3 +25,11 @@ library(tidyverse)
 
 input_words <- c("This", "set", "of", "words", "should", "be", "combined")
 sentence <- str_c(input_words, collapse = " ")
+
+library(tidyverse)
+
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+recent_grads <- recent_grads %>%
+  mutate(
+    is_arts = str_detect(Major, "ARTS")
+  )
