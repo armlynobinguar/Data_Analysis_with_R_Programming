@@ -1,0 +1,8 @@
+library(tidyverse)
+# Supply col_types = cols() to suppress column specification output 
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+glimpse(recent_grads)
+names(recent_grads)
+
+num_rows <- nrow(recent_grads)
+num_cols <- ncol(recent_grads)
