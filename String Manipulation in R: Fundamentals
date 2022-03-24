@@ -16,3 +16,8 @@ recent_grads <- recent_grads %>%
   mutate(
     formatted_major_code = str_pad(major_code, 7, pad = "0")
   )
+library(tidyverse)
+
+input_sentence <- "You'll need to split this sentence."
+output1 <- str_split(input_sentence, " ")[[1]]
+output2 <- output1[1:4]
