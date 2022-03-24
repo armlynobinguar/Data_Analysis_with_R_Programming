@@ -12,3 +12,12 @@ recent_grads <- read_csv("recent_grads.csv", col_types = cols())
 
 rank_major_tibble <- select(recent_grads, Rank, Major)
 no_major_code_tibble <- select(recent_grads, -Major_code)
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+large_sample_majors <- filter(recent_grads, Sample_size > 100)
+non_engineering_majors <- filter(recent_grads, 
+                                 Total <= 70000,
+                                 Median > 40000,
+                                 Major_category != "Engineering")
