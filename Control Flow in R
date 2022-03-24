@@ -31,3 +31,14 @@ if (wpm >= 68 && wpm <= 82) {
 } else {
   classification <- "Not Average"
 }
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+new_recent_grads <- recent_grads %>% 
+  mutate(
+    unemployment_level = case_when(
+      Unemployment_rate < 0.05 ~ "Low",
+      Unemployment_rate >= 0.05 & Unemployment_rate < 0.1 ~ "Moderate",
+      Unemployment_rate >= 0.1 ~ "High"
+    )
+  )
