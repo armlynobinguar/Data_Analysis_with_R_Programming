@@ -21,3 +21,10 @@ non_engineering_majors <- filter(recent_grads,
                                  Total <= 70000,
                                  Median > 40000,
                                  Major_category != "Engineering")
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+pipeline_output <- recent_grads %>%
+  select(-Rank, -Major) %>%
+  filter(Median < 50000)
