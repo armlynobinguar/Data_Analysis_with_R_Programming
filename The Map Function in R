@@ -25,3 +25,22 @@ format_score <- function(score) {
 }
 output_scores <- map(input_scores, format_score)
 third_element <- output_scores[[3]]
+
+library(tidyverse)
+student_scores <- read_csv("scores.csv", col_types = cols())
+format_score <- function(score) {
+  fmt_string <- str_replace(score, "%", "")
+  num <- as.numeric(fmt_string)
+  
+  return(num)
+}
+
+student_scores <- student_scores %>%
+  mutate(
+    new_writing_score = unlist(map(writing_score, format_score))
+  )
+student_scores <- student_scores %>%
+  mutate(
+    new_math_score = unlist(map(math_score, format_score)),
+    new_science_score = unlist(map(science_score, format_score))
+  )
