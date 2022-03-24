@@ -15,3 +15,8 @@ patents <- c(3, 10, 1, 48, 15, 4)
 # Type your code below
 
 university_matrix <- cbind(world_rank, quality_of_education, influence, broad_impact, patents)
+
+#university_matrix <- cbind(world_rank, quality_of_education, influence, broad_impact, patents)
+
+
+rownames(university_matrix) <- c("harvard", "stanford", "MIT", "cambridge", "oxford", "columbia")
