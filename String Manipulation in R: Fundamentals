@@ -21,3 +21,7 @@ library(tidyverse)
 input_sentence <- "You'll need to split this sentence."
 output1 <- str_split(input_sentence, " ")[[1]]
 output2 <- output1[1:4]
+library(tidyverse)
+
+input_words <- c("This", "set", "of", "words", "should", "be", "combined")
+sentence <- str_c(input_words, collapse = " ")
