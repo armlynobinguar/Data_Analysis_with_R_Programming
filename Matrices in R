@@ -38,3 +38,9 @@ usa_universities <- c(TRUE, TRUE, TRUE, FALSE, FALSE, TRUE)
 
 university_matrix[4, 5] <- 3
 university_matrix[usa_universities, ] <- 2
+
+california <- c(7, 5, 4, 7, 29, 43176)
+# Type your code below
+
+
+complete_university_matrix <- rbind(university_matrix, california)
