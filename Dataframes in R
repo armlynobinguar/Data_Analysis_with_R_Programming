@@ -52,3 +52,19 @@ least_employed <- recent_grads %>%
 head(least_employed)
 
 least_employed_major <- "MILITARY TECHNOLOGIES"
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+minmax_median_income <- recent_grads %>% 
+  summarize(
+    min_income = min(Median),
+    max_income = max(Median)
+  )
+    
+minmax_median_income_by_major <- recent_grads %>% 
+  group_by(Major) %>%
+  summarize(
+    min_income = min(Median),
+    max_income = max(Median)
+  )
