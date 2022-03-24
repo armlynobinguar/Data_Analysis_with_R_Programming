@@ -47,3 +47,8 @@ complete_university_matrix <- rbind(university_matrix, california)
 
 university_matrix_wtho_first <- complete_university_matrix[, -1]
 below_10_university_matrix <- complete_university_matrix[broad_impact <= 10, c(-2, -5)]
+
+harvard_scores_avg <- mean(complete_university_matrix["harvard", -6])
+
+university_scores_avg <- rowMeans(complete_university_matrix[ , -6])
+category_scores_avg <- colMeans(complete_university_matrix[ , -6])
