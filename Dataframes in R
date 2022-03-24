@@ -68,3 +68,8 @@ minmax_median_income_by_major <- recent_grads %>%
     min_income = min(Median),
     max_income = max(Median)
   )
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+medians <- recent_grads %>% pull(Median)
+highest_median <- medians %>% max
