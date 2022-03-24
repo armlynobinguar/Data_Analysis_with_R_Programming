@@ -44,3 +44,6 @@ california <- c(7, 5, 4, 7, 29, 43176)
 
 
 complete_university_matrix <- rbind(university_matrix, california)
+
+university_matrix_wtho_first <- complete_university_matrix[, -1]
+below_10_university_matrix <- complete_university_matrix[broad_impact <= 10, c(-2, -5)]
