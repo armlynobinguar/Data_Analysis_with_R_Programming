@@ -14,3 +14,7 @@ library(lubridate)
 input_date <- "2020-11-13 13:13:13"
 answer_month <- month(input_date)
 answer_day_of_week <- wday(input_date, label = TRUE)
+
+library(lubridate)
+now <- Sys.time() %>% as_datetime
+days_since_founding <- now - ymd_hms("2015-03-01 00:00:00")
