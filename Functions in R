@@ -26,3 +26,16 @@ is_divisible <- function(dividend, divisor) {
   }
 }
 div_5731_by_11 <- is_divisible(5731, 11)
+
+subtract_all <- function(start, ...) {
+  current_num <- start
+  
+  for (num in list(...)) { 
+    current_num <- current_num - num
+  }
+  
+  return(current_num)
+}
+
+first_subtraction <- subtract_all(10, 1, 2, 3)
+second_subtraction <- subtract_all(100, 71, 22)
