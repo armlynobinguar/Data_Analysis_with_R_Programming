@@ -35,3 +35,6 @@ names(chess_club) <- chess_club_names
 
 meeting_matrix <- chess_club[[4]]
 club_second_due <- chess_club[[c(3,2)]]
+
+chess_club[[c(3, 3)]] <- 5
+chess_club[[c(3, 3)]]
