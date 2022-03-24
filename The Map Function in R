@@ -1,0 +1,4 @@
+library(tidyverse)
+student_scores <- read_csv("scores.csv")
+# Optional approach to suppress column specification output:
+# student_scores <- read_csv("scores.csv", col_types = cols())
