@@ -13,3 +13,15 @@ format_score <- function(score) {
 }
 
 converted_string <- format_score(percent_string)
+
+library(tidyverse)
+input_scores <- c("83%", "29%", "76%")
+
+format_score <- function(score) {
+  fmt_string <- str_replace(score, "%", "")
+  num <- as.numeric(fmt_string)
+  
+  return(num)
+}
+output_scores <- map(input_scores, format_score)
+third_element <- output_scores[[3]]
