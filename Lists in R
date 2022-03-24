@@ -1,0 +1,11 @@
+harvard <- c(1,1,1,1,3)
+stanford <- c(2,9,3,4,10)
+MIT <- c(3,3,2,2,1)
+cambridge <- c(4,2,6,13,48)
+oxford <- c(5,7,12,9,15)
+columbia <- c(6,13,13,12,4)
+# Type your code below
+
+category_names <- c("world_rank", "quality_of_education", "influence", "broad_impact", "patents")
+university_matrix <- rbind(harvard, stanford, MIT, cambridge, oxford, columbia)
+colnames(university_matrix) <- category_names
