@@ -6,3 +6,9 @@ names(recent_grads)
 
 num_rows <- nrow(recent_grads)
 num_cols <- ncol(recent_grads)
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+rank_major_tibble <- select(recent_grads, Rank, Major)
+no_major_code_tibble <- select(recent_grads, -Major_code)
