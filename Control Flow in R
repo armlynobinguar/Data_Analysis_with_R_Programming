@@ -7,3 +7,11 @@ if (nrow(recent_grads) > 1000) {
 } else {
   data_size <- "Small"
 }
+
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+new_recent_grads <- recent_grads %>% 
+  mutate(
+    median_level = if_else(Median > 50000, "Above Average", "Below Average"),
+    greater_prop_gender = if_else(Women > Men, "Women", "Men")
+  )
