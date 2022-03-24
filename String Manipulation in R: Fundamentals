@@ -1,0 +1,5 @@
+library(tidyverse) # stringr is in the tidyverse! 
+word <- "Dataquest"
+first_four_letters <- str_sub(word, 1, 4)
+last_two_letters <- str_sub(word, 8, 9)
+
