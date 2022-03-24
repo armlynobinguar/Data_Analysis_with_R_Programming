@@ -24,3 +24,10 @@ if (wpm < 58) {
 } else {
   classification <- "Average"
 }
+
+wpm <- 70
+if (wpm >= 68 && wpm <= 82) {
+  classification <- "Average"
+} else {
+  classification <- "Not Average"
+}
