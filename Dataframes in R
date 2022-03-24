@@ -28,3 +28,13 @@ recent_grads <- read_csv("recent_grads.csv", col_types = cols())
 pipeline_output <- recent_grads %>%
   select(-Rank, -Major) %>%
   filter(Median < 50000)
+  
+library(tidyverse)
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+
+new_recent_grads <- recent_grads %>%
+  mutate(
+    prop_employed = Employed / Total,
+    prop_women = Women / Total,
+    prop_women_gt_employed = prop_women > prop_employed
+  )
