@@ -18,3 +18,9 @@ answer_day_of_week <- wday(input_date, label = TRUE)
 library(lubridate)
 now <- Sys.time() %>% as_datetime
 days_since_founding <- now - ymd_hms("2015-03-01 00:00:00")
+
+library(lubridate)
+
+start <- ymd("2020/05/01")
+duration_end <- start + duration(day = 5, hour = 12)
+period_end <- start + period(month = 1, day = 1)
