@@ -3,3 +3,8 @@ word <- "Dataquest"
 first_four_letters <- str_sub(word, 1, 4)
 last_two_letters <- str_sub(word, 8, 9)
 
+library(tidyverse)
+# Supply col_types = cols() to suppress column specification output
+recent_grads <- read_csv("recent_grads.csv", col_types = cols())
+lower_case_colnames <- str_to_lower(colnames(recent_grads))
+colnames(recent_grads) <- lower_case_colnames
