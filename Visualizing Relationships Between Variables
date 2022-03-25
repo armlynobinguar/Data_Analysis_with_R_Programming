@@ -1,0 +1,1 @@
+life_expec <- read_csv("life_expec.csv")
