@@ -34,3 +34,12 @@ reviews %>%
 reviews %>%
   ggplot(aes(x = Rating_Site, y = Rating)) +
   geom_boxplot()
+  
+  # reviews %>%
+#   ggplot(aes(x = Rating_Site, y = Rating)) +
+#   geom_boxplot()
+reviews %>%
+ggplot(aes(x = Rating_Site, y = Rating)) +
+  geom_boxplot() +
+  labs(title = "Comparison of Movie Ratings") +
+  theme(panel.background = element_rect(fill = "white"))
