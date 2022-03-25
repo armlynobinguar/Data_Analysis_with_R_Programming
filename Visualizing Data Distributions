@@ -30,3 +30,7 @@ reviews %>%
 reviews %>%
   ggplot(aes(x = Rating, color = Rating_Site)) +
   geom_density()
+
+reviews %>%
+  ggplot(aes(x = Rating_Site, y = Rating)) +
+  geom_boxplot()
