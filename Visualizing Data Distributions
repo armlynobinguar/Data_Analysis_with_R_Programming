@@ -14,3 +14,7 @@ review_avgs <- reviews %>%
 review_avgs %>%
   ggplot(aes(x = Rating_Site, y = avg)) +
   geom_col()
+
+reviews %>%
+  ggplot(aes(x = Rating_Site)) +
+  geom_bar()
