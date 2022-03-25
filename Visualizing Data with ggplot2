@@ -29,3 +29,16 @@ life_expec_filter %>%
     title = "United States Life Expectancy: 100 Years of Change", 
     y = "Average Life Expectancy (Years)"
   )
+  
+  life_expec_filter <- life_expec %>%
+  filter(Race == "All Races" & Sex == "Both Sexes")
+life_expec_filter %>% 
+  ggplot(aes(x = Year, y = Avg_Life_Expec)) +
+    geom_line() +
+    labs(
+      title = "United States Life Expectancy: 100 Years of Change", 
+      y = "Average Life Expectancy (Years)"
+    ) +
+    theme(
+      panel.background = element_rect(fill = "white")
+    )
