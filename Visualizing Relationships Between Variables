@@ -2,3 +2,9 @@ life_expec <- read_csv("life_expec.csv")
 
 life_expec_sex <- life_expec %>%
   filter(Race == "All Races" & Sex != "Both Sexes")
+
+life_expec_sex <- life_expec %>%
+  filter(Race == "All Races" & Sex != "Both Sexes")
+life_expec_sex %>% 
+  ggplot(aes(x = Year, y = Avg_Life_Expec, color = Sex)) +
+  geom_line()
