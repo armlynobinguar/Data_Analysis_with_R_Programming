@@ -43,3 +43,12 @@ ggplot(aes(x = Rating_Site, y = Rating)) +
   geom_boxplot() +
   labs(title = "Comparison of Movie Ratings") +
   theme(panel.background = element_rect(fill = "white"))
+  
+  reviews <- reviews %>%
+  mutate(
+    Rating_Site_cat = factor(Rating_Site, levels = c("Metacritic", "Rotten_Tomatoes", "Fandango", "IMDB"))
+  )
+
+reviews %>%
+  ggplot(aes(x = Rating_Site_cat, y = Rating)) +
+  geom_boxplot()
