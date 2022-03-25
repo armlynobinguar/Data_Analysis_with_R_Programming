@@ -22,3 +22,7 @@ reviews %>%
 reviews %>%
   ggplot(aes(x = Rating)) +
   geom_histogram(bins = 30)
+  
+  reviews %>%
+  ggplot(aes(x = Rating, fill = Rating_Site)) +
+  geom_histogram(bins = 30)
