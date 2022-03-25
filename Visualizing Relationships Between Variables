@@ -8,3 +8,10 @@ life_expec_sex <- life_expec %>%
 life_expec_sex %>% 
   ggplot(aes(x = Year, y = Avg_Life_Expec, color = Sex)) +
   geom_line()
+  
+  life_expec_sex <- life_expec %>%
+  filter(Race == "All Races" & Sex != "Both Sexes")
+life_expec_sex %>% 
+ggplot(aes(x = Year, y = Avg_Life_Expec, color = Sex)) +
+  geom_line() +
+  xlim(1900, 1950)
