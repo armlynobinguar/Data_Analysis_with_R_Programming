@@ -1,1 +1,7 @@
 reviews <- read_csv("movie_reviews.csv")
+
+review_avgs <- reviews %>%
+  group_by(Rating_Site) %>%
+  summarize(
+    avg = mean(Rating)
+  )
