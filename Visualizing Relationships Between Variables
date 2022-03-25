@@ -22,3 +22,11 @@ life_expec_sex_race <- life_expec %>%
 life_expec_sex_race %>% 
   ggplot(aes(x = Year, y = Avg_Life_Expec, lty = Race, color = Sex)) +
   geom_line()
+  
+  life_expec_sex_race <- life_expec %>%
+  filter((Sex == "Female" | Sex == "Male") & (Race == "Black" | Race == "White"))
+life_expec_sex_race %>% 
+ggplot(aes(x = Year, y = Avg_Life_Expec, color = Sex, lty = Race)) +
+  geom_line() +
+  scale_color_manual(values = c("darkgreen", "darkorchid")) +
+  scale_linetype_manual(values = c(1,4))
