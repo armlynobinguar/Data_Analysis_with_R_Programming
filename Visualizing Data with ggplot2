@@ -2,3 +2,6 @@ library(readr)
 
 library(readr)
 life_expec <- read_csv("life_expec.csv")
+
+life_expec %>% 
+  ggplot()
