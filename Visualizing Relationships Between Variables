@@ -30,3 +30,10 @@ ggplot(aes(x = Year, y = Avg_Life_Expec, color = Sex, lty = Race)) +
   geom_line() +
   scale_color_manual(values = c("darkgreen", "darkorchid")) +
   scale_linetype_manual(values = c(1,4))
+
+life_expec_overall <- life_expec %>%
+  filter(Race == "All Races" & Sex == "Both Sexes")
+
+life_expec_overall %>% 
+  ggplot(aes(x = Year, y = Avg_Life_Expec)) +
+  geom_point()
