@@ -1,1 +1,4 @@
 life_expec <- read_csv("life_expec.csv")
+
+life_expec_sex <- life_expec %>%
+  filter(Race == "All Races" & Sex != "Both Sexes")
