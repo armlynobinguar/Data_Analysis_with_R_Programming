@@ -18,3 +18,7 @@ review_avgs %>%
 reviews %>%
   ggplot(aes(x = Rating_Site)) +
   geom_bar()
+
+reviews %>%
+  ggplot(aes(x = Rating)) +
+  geom_histogram(bins = 30)
