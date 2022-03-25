@@ -8,3 +8,7 @@ life_expec %>%
 
 life_expec %>% 
   ggplot(aes(x = Year, y = Avg_Life_Expec))
+
+life_expec %>% 
+  ggplot(aes(x = Year, y = Avg_Life_Expec)) +
+  geom_line()
