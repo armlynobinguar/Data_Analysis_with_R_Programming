@@ -16,3 +16,5 @@ summary_2 <- combined %>%
   drop_na() %>%
   group_by(boro) %>%
   summarize(mean(avg_sat_score))
+
+na_count <- colSums(is.na(combined))
