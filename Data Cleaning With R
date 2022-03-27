@@ -47,3 +47,7 @@ demographics <- demographics %>%
   
   demographics_clean <- demographics %>%
   select(-Name, -female_per)
+  
+  hs_directory <- hs_directory %>%
+  select(dbn, school_name, `Location 1`) %>%
+  rename(DBN = dbn)
