@@ -32,3 +32,19 @@ life_expec_race_sex_long <- life_expec_race_sex %>%
 life_expec_race_sex_long %>% 
   ggplot(aes(x = year, y = value, color = column)) +
   geom_line()
+
+life_expec_race_sex_long <- life_expec %>% 
+  filter(race == "All Races", sex == "Both Sexes") %>% 
+  pivot_longer(
+    cols = c(avg_life_expec, scaled_age_adj_death_rate),
+    names_to = "column",
+    values_to = "value"
+    )
+life_expec_race_sex_long %>% 
+  ggplot(aes(x = year, y = value, color = column)) +
+  geom_line() +
+  scale_color_manual(
+    name = "Trend",
+    values = c("forestgreen", "orangered"),
+    labels = c("Avg. Life Expectancy", "Death Rate (Age Adjusted)")
+  )
