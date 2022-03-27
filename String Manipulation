@@ -21,3 +21,7 @@ hs_directory <- hs_directory %>%
 hs_directory <- hs_directory %>%
   mutate(lat = str_sub(lat, 2, -1), long = str_sub(long, 1, -2))%>%
   mutate(across(c(lat, long), as.numeric))
+
+class_size <- class_size %>%
+  mutate(DBN = str_c(CSD, `SCHOOL CODE`, sep = "")) %>%
+  mutate(DBN = str_pad(DBN, width = 6, side = 'left', pad = "0"))
