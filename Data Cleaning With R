@@ -44,3 +44,6 @@ graduation <- graduation %>%
 demographics <- demographics %>%
   filter(schoolyear == "20112012" & !is.na(grade9)) %>%
   select(DBN, Name, contains("_per"), total_enrollment)
+  
+  demographics_clean <- demographics %>%
+  select(-Name, -female_per)
