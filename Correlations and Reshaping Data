@@ -26,3 +26,6 @@ combined_race_longer <- combined %>%
 ggplot(data = combined_race_longer,
   aes(x = percent, y = avg_sat_score, color = race)) +
   geom_point()
+combined_race_wider <- combined_race_longer %>%
+  pivot_wider(names_from = race,
+              values_from = percent)
