@@ -48,3 +48,11 @@ life_expec_race_sex_long %>%
     values = c("forestgreen", "orangered"),
     labels = c("Avg. Life Expectancy", "Death Rate (Age Adjusted)")
   )
+  
+  life_expec_black <- life_expec %>% 
+  filter(sex != "Both Sexes", race == "Black")
+
+life_expec_black %>% 
+  ggplot(aes(x = year, y = avg_life_expec)) +
+  geom_line() +
+  facet_wrap(vars(sex))
