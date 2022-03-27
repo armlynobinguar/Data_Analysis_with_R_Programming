@@ -1,0 +1,8 @@
+library(readr)
+# type your answer below
+sat_results <- read_csv("sat_results_1.csv")
+ap_2010 <- read_csv("ap_2010_1.csv") 
+class_size <- read_csv("class_size_1.csv")
+demographics <- read_csv("demographics_1.csv") 
+graduation <- read_csv("graduation_1.csv") 
+hs_directory <- read_csv("hs_directory_1.csv")
