@@ -7,3 +7,9 @@ class_size <- read_csv("class_size.csv")
 demographics <- read_csv("demographics.csv") 
 graduation <- read_csv("graduation.csv") 
 hs_directory <- read_csv("hs_directory.csv")
+
+sat_results_clean <- sat_results %>%
+    mutate(`SAT Critical Reading Avg. Score` = as.numeric(`SAT Critical Reading Avg. Score`)) %>%
+    mutate(`SAT Math Avg. Score` = as.numeric(`SAT Math Avg. Score`)) %>%
+    mutate(`SAT Writing Avg. Score` = as.numeric(`SAT Writing Avg. Score`))  %>%
+    mutate(avg_sat_score = `SAT Writing Avg. Score` + `SAT Critical Reading Avg. Score` + `SAT Math Avg. Score`)
