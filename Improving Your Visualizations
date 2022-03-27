@@ -56,3 +56,14 @@ life_expec_black %>%
   ggplot(aes(x = year, y = avg_life_expec)) +
   geom_line() +
   facet_wrap(vars(sex))
+  
+  life_expec_race_sex <- life_expec %>% 
+  filter(sex != "Both Sexes", race != "All Races")
+
+life_expec_race_sex %>% 
+  ggplot(aes(x = year, y = avg_life_expec)) +
+  geom_line() +
+  facet_grid(
+      rows = vars(race),
+      cols = vars(sex)
+  )
