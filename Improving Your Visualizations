@@ -5,3 +5,10 @@ life_expec <- life_expec %>%
   mutate(
     scaled_age_adj_death_rate = age_adj_death_rate / 10
   )
+ life_expec_race_sex <- life_expec %>% 
+  filter(race == "All Races", sex == "Both Sexes")
+
+life_expec_race_sex %>%
+  ggplot(aes(x = year)) +
+  geom_line(aes(y = avg_life_expec)) +
+  geom_line(aes(y = scaled_age_adj_death_rate))
