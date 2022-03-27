@@ -40,3 +40,7 @@ class_size <- class_size %>%
 graduation <- graduation %>%
   filter(Cohort == "2006" & Demographic == "Total Cohort") %>%
   select(DBN, `School Name`, `Total Grads - % of cohort`, `Dropped Out - % of cohort`)
+  
+demographics <- demographics %>%
+  filter(schoolyear == "20112012" & !is.na(grade9)) %>%
+  select(DBN, Name, contains("_per"), total_enrollment)
