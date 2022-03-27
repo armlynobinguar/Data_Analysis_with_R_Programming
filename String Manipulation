@@ -38,3 +38,6 @@ duplicate_DBN <- list( "sat_results" = sat_results_duplicated,
                       "demographics" = demographics_duplicated, 
                       "graduation" = graduation_duplicated, 
                       "hs_directory" = hs_directory_duplicated)
+
+ap_2010 <- ap_2010 %>%
+  distinct(DBN, .keep_all = TRUE)
