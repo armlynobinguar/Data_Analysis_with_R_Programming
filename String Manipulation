@@ -13,3 +13,8 @@ hs_directory <- hs_directory %>%
            sep = "\n") %>% 
   select(-string_1, -string_2) %>% 
   rename(lat_long = string_3)
+
+hs_directory <- hs_directory %>%
+  separate(col = lat_long, 
+           into = c("lat", "long"), 
+           sep = ",")
