@@ -18,3 +18,11 @@ ggplot(data = combined,
 ggplot(data = combined,
   aes(x = sped_percent, y = avg_sat_score)) +
   geom_point()
+combined_race_longer <- combined %>%
+  pivot_longer(cols = asian_per:white_per, 
+               names_to = "race", 
+               values_to = "percent")
+
+ggplot(data = combined_race_longer,
+  aes(x = percent, y = avg_sat_score, color = race)) +
+  geom_point()
