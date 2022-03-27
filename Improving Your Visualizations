@@ -12,3 +12,12 @@ life_expec_race_sex %>%
   ggplot(aes(x = year)) +
   geom_line(aes(y = avg_life_expec)) +
   geom_line(aes(y = scaled_age_adj_death_rate))
+  
+  life_expec_race_sex <- life_expec %>% 
+  filter(race == "All Races", sex == "Both Sexes")
+life_expec_race_sex_long <- life_expec_race_sex %>% 
+  pivot_longer(
+    cols = c(avg_life_expec, scaled_age_adj_death_rate),
+    names_to = "column",
+    values_to = "value"
+    )
