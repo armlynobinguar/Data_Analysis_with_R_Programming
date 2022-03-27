@@ -25,3 +25,16 @@ hs_directory <- hs_directory %>%
 class_size <- class_size %>%
   mutate(DBN = str_c(CSD, `SCHOOL CODE`, sep = "")) %>%
   mutate(DBN = str_pad(DBN, width = 6, side = 'left', pad = "0"))
+sat_results_duplicated <- sum(duplicated(sat_results$DBN))
+ap_2010_duplicated <- sum(duplicated(ap_2010$DBN))
+class_size_duplicated <- sum(duplicated(class_size$DBN))
+demographics_duplicated <- sum(duplicated(demographics$DBN))
+graduation_duplicated <- sum(duplicated(graduation$DBN)) 
+hs_directory_duplicated <- sum(duplicated(hs_directory$DBN)) 
+
+duplicate_DBN <- list( "sat_results" = sat_results_duplicated, 
+                      "ap_2010" = ap_2010_duplicated, 
+                      "class_size" = class_size_duplicated,
+                      "demographics" = demographics_duplicated, 
+                      "graduation" = graduation_duplicated, 
+                      "hs_directory" = hs_directory_duplicated)
