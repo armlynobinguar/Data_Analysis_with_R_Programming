@@ -1,0 +1,2 @@
+life_expec <- read_csv("life_expec.csv")
+colnames(life_expec) <- str_to_lower(colnames(life_expec))
