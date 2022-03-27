@@ -36,3 +36,7 @@ class_size <- class_size %>%
   summarize(avg_class_size = mean(`AVERAGE CLASS SIZE`), 
             avg_largest_class = mean(`SIZE OF LARGEST CLASS`),
             avg_smallest_class = mean(`SIZE OF SMALLEST CLASS`))
+            
+graduation <- graduation %>%
+  filter(Cohort == "2006" & Demographic == "Total Cohort") %>%
+  select(DBN, `School Name`, `Total Grads - % of cohort`, `Dropped Out - % of cohort`)
