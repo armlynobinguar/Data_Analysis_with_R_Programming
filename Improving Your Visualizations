@@ -1,2 +1,7 @@
 life_expec <- read_csv("life_expec.csv")
 colnames(life_expec) <- str_to_lower(colnames(life_expec))
+
+life_expec <- life_expec %>% 
+  mutate(
+    scaled_age_adj_death_rate = age_adj_death_rate / 10
+  )
