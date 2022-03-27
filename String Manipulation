@@ -6,3 +6,10 @@ class_size <- read_csv("class_size_1.csv")
 demographics <- read_csv("demographics_1.csv") 
 graduation <- read_csv("graduation_1.csv") 
 hs_directory <- read_csv("hs_directory_1.csv")
+
+hs_directory <- hs_directory %>%
+  separate(col = `Location 1`, 
+           into = c("string_1", "string_2", "string_3" ), 
+           sep = "\n") %>% 
+  select(-string_1, -string_2) %>% 
+  rename(lat_long = string_3)
