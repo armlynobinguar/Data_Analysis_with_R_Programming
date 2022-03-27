@@ -29,3 +29,6 @@ ggplot(data = combined_race_longer,
 combined_race_wider <- combined_race_longer %>%
   pivot_wider(names_from = race,
               values_from = percent)
+cor_mat <- combined %>%
+  select(where(is.numeric)) %>%
+  cor(use = "pairwise.complete.obs")
