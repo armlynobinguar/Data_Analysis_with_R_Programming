@@ -5,3 +5,16 @@ combined <- read_csv("combined.csv")
 combined <- combined %>%
   select(-SchoolName, -`SCHOOL NAME.y`, -Name, -`School Name`, -school_name, -`Location 1`) %>%
   rename(school_name = `SCHOOL NAME.x`)
+  
+  library(ggplot2)
+ggplot(data = combined,
+  aes(x = frl_percent, y = avg_sat_score)) +
+  geom_point()
+
+ggplot(data = combined,
+  aes(x = ell_percent, y = avg_sat_score)) +
+  geom_point()
+
+ggplot(data = combined,
+  aes(x = sped_percent, y = avg_sat_score)) +
+  geom_point()
