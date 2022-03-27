@@ -1,1 +1,4 @@
 combined <- read_csv("combined.csv")
+summary <- combined %>%
+  group_by(boro) %>%
+  summarize(mean(avg_sat_score, na.rm = TRUE))
