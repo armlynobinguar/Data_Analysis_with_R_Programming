@@ -11,3 +11,8 @@ summary_2 <- combined %>%
   drop_na(boro) %>%
   group_by(boro) %>%
   summarize(sat_avg = mean(avg_sat_score, na.rm = TRUE))
+  
+  summary_3 <- combined %>%
+  drop_na() %>%
+  group_by(boro) %>%
+  summarize(mean(avg_sat_score))
