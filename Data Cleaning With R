@@ -13,3 +13,7 @@ sat_results_clean <- sat_results %>%
     mutate(`SAT Math Avg. Score` = as.numeric(`SAT Math Avg. Score`)) %>%
     mutate(`SAT Writing Avg. Score` = as.numeric(`SAT Writing Avg. Score`))  %>%
     mutate(avg_sat_score = `SAT Writing Avg. Score` + `SAT Critical Reading Avg. Score` + `SAT Math Avg. Score`)
+
+sat_results <- sat_results %>%
+    mutate(across(contains("SAT"), as.numeric)) %>% 
+    mutate(avg_sat_score = `SAT Writing Avg. Score` + `SAT Critical Reading Avg. Score` + `SAT Math Avg. Score`)
