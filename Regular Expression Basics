@@ -22,3 +22,9 @@ google_titles_logical  <- str_detect(titles, "[Gg]oogle" )
 google_titles  <-  titles[google_titles_logical]
 hn_google <- hn %>%
     filter(google_titles_logical)
+    
+# The `titles` variable is available from
+# previous screens
+email_logical  <-  str_detect(titles, "e-?mail")
+email_count  <-  sum(email_logical)
+email_titles  <-  titles[email_logical]
