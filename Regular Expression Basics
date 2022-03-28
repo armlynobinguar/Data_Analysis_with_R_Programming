@@ -7,3 +7,7 @@ library(dplyr)
 pattern <- "Amazon"
 matches <- str_detect(titles, pattern)
 hn_matches <- if_else(matches, "Match", "No Match")
+
+pattern <- "[Aa]mazon"
+matches <- str_detect(titles, pattern)
+amazon_mentions <- sum(matches)
