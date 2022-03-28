@@ -46,3 +46,10 @@ hn_sql_flavor_avg <- hn_sql %>%
     select(flavor, num_comments) %>%
     group_by(flavor) %>%
     summarise(avg = mean(num_comments))
+
+email_variations  <-  c('email', 'Email', 'e Mail',
+                        'e mail', 'E-mail', 'e-mail',
+                        'eMail', 'E-Mail', 'EMAIL')
+pattern  <-  "(?i)e[\\-\\s]?mail"
+email_uniform  <-  str_replace(email_variations, pattern, "email")
+titles_clean  <-  str_replace_all(titles, pattern, "email")
