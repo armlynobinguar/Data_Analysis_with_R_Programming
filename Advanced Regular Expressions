@@ -5,3 +5,9 @@ hn  <-  read_csv("hacker_news.csv")
 titles  <-  hn$title
 sql_pattern  <-  "(?i)SQL"
 sql_counts  <-  sum(str_detect(titles, sql_pattern))
+
+library(dplyr)
+library(stringr)
+pattern  <-  "(?i)(python [\\d])"
+python_flavors  <-  str_match(titles, pattern)[,2]
+python_titles_freq  <-  table(str_to_lower(python_flavors))
