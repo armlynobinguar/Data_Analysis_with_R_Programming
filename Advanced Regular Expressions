@@ -29,3 +29,7 @@ first_ten  <-  first_10_matches(titles, pattern)
 
 pattern  <-  "(?<!Series\\s)\\b[Cc]\\b(?![\\+\\.])"
 c_mentions  <-  sum(str_detect(titles, pattern))
+
+pattern  <-  "\\b(\\w+)\\s\\1\\b"
+
+repeated_words  <-  titles[str_detect(titles, pattern)]
