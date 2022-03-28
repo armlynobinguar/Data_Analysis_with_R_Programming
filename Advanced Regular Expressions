@@ -16,3 +16,13 @@ python_titles <- titles[str_detect(titles,"[Pp]ython [\\d\\.]+")]
 pattern <- "[Pp]ython ([\\d\\.]+)"
 python_versions <- str_match(python_titles, pattern)[,2]
 python_versions_freq <- table(python_versions)
+
+first_10_matches <- function (data, pattern) {
+    matches <- str_detect(data, pattern) # finding pattern matches
+    matched_df <- data[matches] # subsetting data (keep only matches)
+    head(matched_df, 10) # taking the first ten matched elements
+}
+
+# pattern  <-  "\\b[Cc]\\b"
+pattern  <-  "\\b[Cc]\\b[^.+]"
+first_ten  <-  first_10_matches(titles, pattern)
