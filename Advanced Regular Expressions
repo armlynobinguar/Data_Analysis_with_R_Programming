@@ -71,3 +71,13 @@ pattern  <-  "(?i)https?://([\\w\\.]+)"
 test_urls_clean  <-  str_match(test_urls, pattern)[,2]
 domains  <- str_match(hn$url, pattern)[,2]
 top_domains  <-  head(table(domains),20)
+
+# `test_urls` is available from the previous screen
+pattern  <-  "(.+)://([\\w\\.]+)/?(.*)"
+
+test_url_parts  <-  str_match(test_urls, pattern)
+
+hn_urls  <-  hn %>%
+    mutate(protocol = str_match(url, pattern)[,2]) %>%
+    mutate(domain = str_match(url, pattern)[,3]) %>%
+    mutate(page_path = str_match(url, pattern)[,4])
