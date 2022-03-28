@@ -47,3 +47,11 @@ first_10_matches <- function (data, pattern) {
 }
 pattern  <-  "[Jj]ava[^Ss]"
 java_titles  <-  titles[str_detect(titles, pattern)]
+
+first_10_matches <- function (data, pattern) {
+    matches <- str_detect(data, pattern) # finding pattern matches
+    matched_df <- data[matches] # subsetting data (keep only matches)
+    head(matched_df, 10) # taking the first ten matched elements
+}
+pattern  <-  "\\b[Jj]ava\\b"
+java_titles  <-  titles[str_detect(titles, pattern)]
