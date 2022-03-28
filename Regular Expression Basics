@@ -17,3 +17,8 @@ matches <- str_detect(titles, pattern)
 hn_matches <- if_else(matches, "Match", "No Match")
 hn_group <- hn %>%
     mutate(year_group = hn_matches)
+    
+google_titles_logical  <- str_detect(titles, "[Gg]oogle" )
+google_titles  <-  titles[google_titles_logical]
+hn_google <- hn %>%
+    filter(google_titles_logical)
