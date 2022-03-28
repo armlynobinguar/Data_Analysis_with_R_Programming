@@ -11,3 +11,8 @@ library(stringr)
 pattern  <-  "(?i)(python [\\d])"
 python_flavors  <-  str_match(titles, pattern)[,2]
 python_titles_freq  <-  table(str_to_lower(python_flavors))
+
+python_titles <- titles[str_detect(titles,"[Pp]ython [\\d\\.]+")]
+pattern <- "[Pp]ython ([\\d\\.]+)"
+python_versions <- str_match(python_titles, pattern)[,2]
+python_versions_freq <- table(python_versions)
