@@ -1,2 +1,9 @@
 library(readr)
 hn  <- read_csv("hacker_news.csv")
+
+library(stringr)
+titles <- hn$title
+library(dplyr)
+pattern <- "Amazon"
+matches <- str_detect(titles, pattern)
+hn_matches <- if_else(matches, "Match", "No Match")
