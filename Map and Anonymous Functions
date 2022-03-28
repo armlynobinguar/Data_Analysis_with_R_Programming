@@ -17,3 +17,5 @@ world_cup_str  <-  '
 library(jsonlite)
 
 world_cup_df  <-  fromJSON(world_cup_str)
+
+hn <- fromJSON("hn_2014.json")
