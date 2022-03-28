@@ -55,3 +55,10 @@ first_10_matches <- function (data, pattern) {
 }
 pattern  <-  "\\b[Jj]ava\\b"
 java_titles  <-  titles[str_detect(titles, pattern)]
+
+
+pattern_beginning  <-  "^\\[\\w+\\]"
+beginning_count  <-  sum(str_detect(titles, pattern_beginning))
+
+pattern_ending  <-  "\\[\\w+\\]$"
+ending_count  <-  sum(str_detect(titles, pattern_ending))
