@@ -53,3 +53,21 @@ email_variations  <-  c('email', 'Email', 'e Mail',
 pattern  <-  "(?i)e[\\-\\s]?mail"
 email_uniform  <-  str_replace(email_variations, pattern, "email")
 titles_clean  <-  str_replace_all(titles, pattern, "email")
+
+test_urls  <-  c(
+ 'https://www.amazon.com/Technology-Ventures-Enterprise-Thomas-Byers/dp/0073523429',
+ 'http://www.interactivedynamicvideo.com/',
+ 'http://www.nytimes.com/2007/11/07/movies/07stein.html?_r=0',
+ 'http://evonomics.com/advertising-cannot-maintain-internet-heres-solution/',
+ 'HTTPS://github.com/keppel/pinn',
+ 'Http://phys.org/news/2015-09-scale-solar-youve.html',
+ 'https://iot.seeed.cc',
+ 'http://www.bfilipek.com/2016/04/custom-deleters-for-c-smart-pointers.html',
+ 'http://beta.crowdfireapp.com/?beta=agnipath',
+ 'https://www.valid.ly'
+)
+pattern  <-  "(?i)https?://([\\w\\.]+)"
+
+test_urls_clean  <-  str_match(test_urls, pattern)[,2]
+domains  <- str_match(hn$url, pattern)[,2]
+top_domains  <-  head(table(domains),20)
