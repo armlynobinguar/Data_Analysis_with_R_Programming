@@ -33,3 +33,9 @@ pattern  <-  "\\[\\w+\\]"
 tag_logical  <-  str_detect(titles, pattern)
 tag_titles  <-  titles[tag_logical]
 tag_count  <-  sum(tag_logical)
+
+tag_titles  <-  titles[str_detect(titles, "\\[\\w+\\]")]
+#the previous pattern  is "\\[\\w+\\]"
+pattern  <-  "\\[(\\w+)\\]"
+tags_text_matches <- str_match(tag_titles, pattern)[,2]
+tags_freq <- table(tags_text_matches)
