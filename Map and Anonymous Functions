@@ -19,3 +19,7 @@ library(jsonlite)
 world_cup_df  <-  fromJSON(world_cup_str)
 
 hn <- fromJSON("hn_2014.json")
+
+tags <- hn_clean[,'tags']
+second_tags <- unique(purrr::map_chr(tags, `[`, 2))
+third_tags <- unique(purrr::map_chr(tags, `[`, 3))
