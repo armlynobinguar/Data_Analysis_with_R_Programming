@@ -11,3 +11,9 @@ hn_matches <- if_else(matches, "Match", "No Match")
 pattern <- "[Aa]mazon"
 matches <- str_detect(titles, pattern)
 amazon_mentions <- sum(matches)
+
+pattern <- "2000|2005|2010"
+matches <- str_detect(titles, pattern)
+hn_matches <- if_else(matches, "Match", "No Match")
+hn_group <- hn %>%
+    mutate(year_group = hn_matches)
