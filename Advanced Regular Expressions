@@ -33,3 +33,16 @@ c_mentions  <-  sum(str_detect(titles, pattern))
 pattern  <-  "\\b(\\w+)\\s\\1\\b"
 
 repeated_words  <-  titles[str_detect(titles, pattern)]
+
+library(dplyr)
+library(stringr)
+pattern  <-  "(?i)(\\w+SQL)"
+hn_sql <-  hn %>% 
+    filter(str_detect(title, pattern)) %>%
+    mutate(flavor = str_match(title, pattern)[,2]) %>%
+    mutate(flavor = str_to_lower(flavor))
+
+hn_sql_flavor_avg <- hn_sql %>%
+    select(flavor, num_comments) %>%
+    group_by(flavor) %>%
+    summarise(avg = mean(num_comments))
