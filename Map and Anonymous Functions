@@ -1,0 +1,19 @@
+world_cup_str  <-  '
+[
+    {
+        "team_1": "France",
+        "team_2": "Croatia",
+        "game_type": "Final",
+        "score" : [4, 2]
+    },
+    {
+        "team_1": "Belgium",
+        "team_2": "England",
+        "game_type": "3rd/4th Playoff",
+        "score" : [2, 0]
+    }
+    ]
+'
+library(jsonlite)
+
+world_cup_df  <-  fromJSON(world_cup_str)
