@@ -62,3 +62,9 @@ beginning_count  <-  sum(str_detect(titles, pattern_beginning))
 
 pattern_ending  <-  "\\[\\w+\\]$"
 ending_count  <-  sum(str_detect(titles, pattern_ending))
+
+email_tests  <-  c('email', 'Email', 'e Mail', 'e mail', 'E-mail',
+                   'e-mail', 'eMail', 'E-Mail', 'EMAIL')
+pattern <- "(?i)e[\\-\\s]?mail"
+email_tests_matches <- str_detect(email_tests, pattern)
+email_mentions <- sum(str_detect(titles, pattern))
