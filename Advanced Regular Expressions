@@ -26,3 +26,6 @@ first_10_matches <- function (data, pattern) {
 # pattern  <-  "\\b[Cc]\\b"
 pattern  <-  "\\b[Cc]\\b[^.+]"
 first_ten  <-  first_10_matches(titles, pattern)
+
+pattern  <-  "(?<!Series\\s)\\b[Cc]\\b(?![\\+\\.])"
+c_mentions  <-  sum(str_detect(titles, pattern))
