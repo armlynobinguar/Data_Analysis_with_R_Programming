@@ -1,0 +1,2 @@
+library(readr)
+hn  <- read_csv("hacker_news.csv")
