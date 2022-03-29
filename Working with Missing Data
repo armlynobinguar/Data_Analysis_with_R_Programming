@@ -1,0 +1,5 @@
+library(dplyr)
+
+mvc_na <- data.frame(is.na(mvc))
+mvc_na_injured <- mvc_na %>%
+    mutate(total_na_injured = rowSums(.[9:11]))
