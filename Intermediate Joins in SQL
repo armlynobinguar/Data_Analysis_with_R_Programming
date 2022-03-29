@@ -40,3 +40,12 @@ INNER JOIN (
            ON ta.track_id = il.track_id
 GROUP BY 1, 2
 ORDER BY 3 DESC LIMIT 5;
+
+SELECT
+    e1.first_name || " " || e1.last_name employee_name,
+    e1.title employee_title,
+    e2.first_name || " " || e2.last_name supervisor_name,
+    e2.title supervisor_title
+FROM employee e1
+LEFT JOIN employee e2 ON e1.reports_to = e2.employee_id
+ORDER BY 1;
