@@ -22,3 +22,21 @@ INNER JOIN media_type mt ON mt.media_type_id = t.media_type_id
 INNER JOIN album al ON al.album_id = t.album_id
 INNER JOIN artist ar on ar.artist_id = al.artist_id
 WHERE il.invoice_id = 4;
+
+SELECT
+    ta.album_title album,
+    ta.artist_name artist,
+    COUNT(*) tracks_purchased
+FROM invoice_line il
+INNER JOIN (
+            SELECT
+                t.track_id,
+                al.title album_title,
+                ar.name artist_name
+            FROM track t
+            INNER JOIN album al ON al.album_id = t.album_id
+            INNER JOIN artist ar ON ar.artist_id = al.artist_id
+           ) ta
+           ON ta.track_id = il.track_id
+GROUP BY 1, 2
+ORDER BY 3 DESC LIMIT 5;
