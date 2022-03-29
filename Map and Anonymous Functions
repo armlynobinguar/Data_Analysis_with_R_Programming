@@ -27,3 +27,28 @@ third_tags <- unique(purrr::map_chr(tags, `[`, 3))
 tags <- hn_clean[,'tags']
 second_tags <- unique(purrr::map_chr(tags, `[`, 2))
 third_tags <- unique(purrr::map_chr(tags, `[`, 3))
+
+json_string  <-  '
+[
+    {
+    "name": "Sabine",
+    "age": 36,
+    "favorite_foods": ["Pumpkin", "Oatmeal"]
+    },
+    {
+    "name": "Zoe",
+    "age": 40,
+    "favorite_foods": ["Chicken", "Pizza", "Chocolate"]
+    },
+    {
+    "name": "Heidi",
+    "age": 40,
+    "favorite_foods": ["Caesar Salad"]
+    }
+    ]
+'
+
+json_df  <-  fromJSON(json_string)
+
+food_lists  <-  json_df[,'favorite_foods']
+food_lists_logical <- map_lgl(food_lists, function(x) length(x) == 1 |length(x) == 3 )
