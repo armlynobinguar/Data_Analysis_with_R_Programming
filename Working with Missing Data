@@ -28,3 +28,14 @@ injured_non_eq <- injured_non_eq %>%
 
 injured_non_eq <- injured_non_eq %>%
     mutate(total_injured = if_else(total_injured != manual_sum, NaN, total_injured ))
+
+library(purrr)
+
+mvc_na <- map_df(mvc, function(x) as.numeric(is.na(x)))
+library(tidyr)
+                 
+mvc_na_heat <- mvc_na %>%
+    pivot_longer(cols = everything(),
+               names_to = "x") %>%
+    group_by(x) %>%
+    mutate(y = row_number())
