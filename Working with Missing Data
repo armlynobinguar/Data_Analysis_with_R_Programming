@@ -3,3 +3,8 @@ library(dplyr)
 mvc_na <- data.frame(is.na(mvc))
 mvc_na_injured <- mvc_na %>%
     mutate(total_na_injured = rowSums(.[9:11]))
+
+killed  <-  mvc %>% select(ends_with("_killed"))
+killed_non_eq <- killed %>% 
+    mutate(manual_sum = rowSums(.[1:3])) %>%
+    filter(manual_sum != total_killed | is.na(total_killed))
