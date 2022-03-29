@@ -146,3 +146,51 @@ vehicles_counts  <-  table(vehicles_1d$value)
 top10_vehicles  <-  head(sort(vehicles_counts, decreasing = T), 10)
 
 top10_vehicles
+
+v_fun <- function(x){ 
+    v_col <- paste('vehicle', x,  sep = "_" )
+    c_col <- paste('cause_vehicle', x,  sep = "_" )
+    sum(is.na(mvc[v_col]) & !is.na(mvc[c_col]))
+}
+
+c_fun <- function(x){ 
+    v_col <- paste('vehicle', x,  sep = "_" )
+    c_col <- paste('cause_vehicle', x,  sep = "_" )
+    sum(!is.na(mvc[v_col]) & is.na(mvc[c_col]))
+}
+
+summarize_missing <- function(){
+    library(purrr)
+    
+    col_labels  <-  c('v_number', 'vehicle_missing', 'cause_missing')
+    
+    v_na <- map_int(1:5, v_fun )
+    c_na <- map_int(1:5, c_fun )
+    
+    vc_na_df  <-  tibble(1:5, v_na, c_na)
+    colnames(vc_na_df) <- col_labels
+    vc_na_df
+}
+
+summary_before  <-  summarize_missing() 
+
+# for (x in 1:5 ){
+#    v_col <- paste('vehicle', x,  sep = "_" )
+#    c_col <- paste('cause_vehicle', x,  sep = "_" )
+for (x in 1:5 ){
+    v_col <- paste('vehicle', x,  sep = "_" )
+    c_col <- paste('cause_vehicle', x,  sep = "_" )
+    
+    # create a logical vector for each column
+    v_missing_logical  <-  is.na(mvc[v_col]) & !is.na(mvc[c_col])
+    c_missing_logical  <-  !is.na(mvc[v_col]) & is.na(mvc[c_col])
+    
+    # replace the values matching the logical vector for each column
+    mvc <- mvc %>%
+        mutate_at(c(v_col), function(x) if_else(v_missing_logical,"Unspecified", v_col ))
+    
+    mvc <- mvc %>%
+        mutate_at(c(c_col), function(x) if_else(c_missing_logical,"Unspecified", c_col ))
+}
+
+summary_after  <-  summarize_missing()
