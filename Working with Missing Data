@@ -70,3 +70,48 @@ library(ggplot2)
 
 mvc_na_vehicle <- mvc_na %>% select(contains("vehicle"))
 plot_na_matrix(mvc_na_vehicle)
+
+#plot na correlation helper
+plot_na_correlation <- function(df) {
+    # Taking the lower triangle of the correlation matrix
+    missing_corr_up <- df
+    missing_corr_up[lower.tri(missing_corr_up)] <- NA
+    missing_corr_up <- data.frame(missing_corr_up)
+    
+    # Preparing the dataframe for heatmaps 
+    col_names <- colnames(missing_corr_up)
+    
+    missing_corr_up_heat <- missing_corr_up %>%
+        pivot_longer(cols = everything(),
+               names_to = "x") %>%
+        group_by(x) %>%
+        mutate(y = col_names[row_number()])  %>%
+        na.omit
+    
+    # Ordering triangle
+    ordered_cols_asc <- col_names[order(colSums(is.na(missing_corr_up)))]
+    ordered_cols_desc <- col_names[order(-colSums(is.na(missing_corr_up)))]
+    
+    missing_corr_up_heat <- missing_corr_up_heat %>%
+        ungroup() %>%
+        mutate(x = factor(x,levels = ordered_cols_asc)) %>%
+        mutate(y = factor(y,levels = ordered_cols_desc))
+    
+    # Plotting heatmaps
+    g <- ggplot(data = missing_corr_up_heat, aes(x=x, y=y, fill=value)) + 
+        geom_tile() + 
+        geom_text(aes(label=value)) +
+        theme_minimal() +
+        scale_fill_gradientn(colours = c("white", "yellow", "red"), values = c(-1,0,1)) +
+        theme(legend.position = "none",
+              axis.title.y=element_blank(),
+              axis.title.x=element_blank(),
+              axis.text.x = element_text(angle = 90, hjust = 1))
+    
+    # Returning the plot
+    g
+}
+mvc_na_vehicle <- mvc_na %>% select(contains("vehicle"))
+missing_vehicle_corr  <-  round(cor(mvc_na_vehicle), 2)
+
+plot_na_correlation(missing_vehicle_corr)
