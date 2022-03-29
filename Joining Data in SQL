@@ -5,3 +5,7 @@ LIMIT 10;
 SELECT c.*, f.name country_name FROM facts f
 INNER JOIN cities c ON c.facts_id = f.id
 LIMIT 5;
+
+SELECT f.name country, c.name capital_city FROM cities c
+INNER JOIN facts f ON f.id = c.facts_id
+WHERE c.capital = 1
