@@ -52,3 +52,8 @@ json_df  <-  fromJSON(json_string)
 
 food_lists  <-  json_df[,'favorite_foods']
 food_lists_logical <- map_lgl(food_lists, function(x) length(x) == 1 |length(x) == 3 )
+
+hn_tags4 <- hn_clean %>%
+    filter(map_lgl(tags, function(x) length(x) == 4))
+hn_tags4_new <- hn_tags4 %>%
+    mutate(tag_4 = map_chr(tags, function(x) x[4]))
