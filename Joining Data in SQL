@@ -30,3 +30,19 @@ INNER JOIN (
             AND population > 10000000
            ) c ON c.facts_id = f.id
 ORDER BY 3 DESC;
+
+SELECT
+    f.name country,
+    c.urban_pop,
+    f.population total_pop,
+    (c.urban_pop / CAST(f.population AS FLOAT)) urban_pct
+FROM facts f
+INNER JOIN (
+            SELECT
+                facts_id,
+                SUM(population) urban_pop
+            FROM cities
+            GROUP BY 1
+           ) c ON c.facts_id = f.id
+WHERE urban_pct > .5
+ORDER BY 4 ASC;
