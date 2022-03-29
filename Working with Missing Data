@@ -194,3 +194,15 @@ for (x in 1:5 ){
 }
 
 summary_after  <-  summarize_missing()
+
+library(readr)
+
+sup_data  <-  read_csv('supplemental_data.csv')
+
+location_cols  <-  c('location', 'on_street', 'off_street', 'borough')
+na_before  <-  colSums(is.na(mvc[location_cols]))
+for (col in location_cols ) {
+    mvc[is.na(mvc[col]),col] <- sup_data[is.na(mvc[col]),col]
+}
+
+na_after  <-  colSums(is.na(mvc[location_cols]))
