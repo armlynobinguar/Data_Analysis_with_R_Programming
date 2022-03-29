@@ -23,3 +23,7 @@ hn <- fromJSON("hn_2014.json")
 tags <- hn_clean[,'tags']
 second_tags <- unique(purrr::map_chr(tags, `[`, 2))
 third_tags <- unique(purrr::map_chr(tags, `[`, 3))
+
+tags <- hn_clean[,'tags']
+second_tags <- unique(purrr::map_chr(tags, `[`, 2))
+third_tags <- unique(purrr::map_chr(tags, `[`, 3))
