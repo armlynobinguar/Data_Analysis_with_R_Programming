@@ -135,3 +135,14 @@ c_na <- map_int(1:5, c_fun )
 
 vc_na_df  <-  tibble(1:5, v_na, c_na)
 colnames(vc_na_df) <- col_labels
+
+vehicles  <-  mvc %>% select(starts_with("vehicle_"))
+head(vehicles)
+library(tidyr)
+
+vehicles_1d  <-  vehicles %>% pivot_longer(cols = everything())
+
+vehicles_counts  <-  table(vehicles_1d$value)
+top10_vehicles  <-  head(sort(vehicles_counts, decreasing = T), 10)
+
+top10_vehicles
