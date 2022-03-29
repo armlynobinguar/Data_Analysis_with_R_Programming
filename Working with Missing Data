@@ -39,3 +39,34 @@ mvc_na_heat <- mvc_na %>%
                names_to = "x") %>%
     group_by(x) %>%
     mutate(y = row_number())
+
+plot_na_matrix <- function(df) {
+    # Preparing the dataframe for heatmaps 
+    df_heat <- df %>%
+        pivot_longer(cols = everything(),
+               names_to = "x") %>%
+        group_by(x) %>%
+        mutate(y = row_number())
+    
+    # Ensuring the order of columns is kept as it is
+    df_heat <- df_heat %>%
+        ungroup() %>%
+        mutate(x = factor(x,levels = colnames(df)))
+    
+    # Plotting data
+    g <- ggplot(data = df_heat, aes(x=x, y=y, fill=value)) + 
+        geom_tile() + 
+        theme(legend.position = "none",
+              axis.title.y=element_blank(),
+              axis.text.y =element_blank(),
+              axis.ticks.y=element_blank(),
+              axis.title.x=element_blank(),
+              axis.text.x = element_text(angle = 90, hjust = 1))
+    
+    # Returning the plot
+    g
+}
+library(ggplot2)
+
+mvc_na_vehicle <- mvc_na %>% select(contains("vehicle"))
+plot_na_matrix(mvc_na_vehicle)
