@@ -57,3 +57,34 @@ hn_tags4 <- hn_clean %>%
     filter(map_lgl(tags, function(x) length(x) == 4))
 hn_tags4_new <- hn_tags4 %>%
     mutate(tag_4 = map_chr(tags, function(x) x[4]))
+
+json_string  <-  '
+[
+    {
+        "name": "Sabine",
+        "age": 36,
+        "favorite_foods": ["Pumpkin", "Oatmeal"]
+    },
+    {
+        "name": "Zoe",
+        "age": 40,
+        "favorite_foods": ["Chicken", "Pizza", "Chocolate"]
+    },
+    {
+        "name": "Heidi",
+        "age": 40,
+        "favorite_foods": ["Caesar Salad"]
+    }
+]
+'
+library(tidyr)
+library(stringr)
+
+hn_clean_unnest <- hn_clean_subset %>%
+    unnest(cols = c(tags)) %>%
+    group_by(author, numComments, points, url, storyText, createdAt, title, objectId) %>% 
+    mutate(id_tag = str_c("tag_", row_number()))%>%
+    pivot_wider(names_from = id_tag, 
+                values_from = tags)
+                                       
+head(hn_clean_unnest)
