@@ -2,3 +2,7 @@ library(RSQLite)
 library(DBI)
 conn <- dbConnect(SQLite(), "jobs.db")
 tables <- dbListTables(conn)
+
+conn <- dbConnect(SQLite(), "jobs.db")
+query <- "SELECT Major FROM recent_grads"
+majors <- dbGetQuery(conn, query)
