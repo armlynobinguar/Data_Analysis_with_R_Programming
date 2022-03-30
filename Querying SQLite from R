@@ -1,0 +1,4 @@
+library(RSQLite)
+library(DBI)
+conn <- dbConnect(SQLite(), "jobs.db")
+tables <- dbListTables(conn)
