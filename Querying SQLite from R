@@ -11,3 +11,11 @@ conn <- dbConnect(SQLite(), "jobs.db")
 query <- "SELECT Major, Major_category FROM recent_grads"
 result <- dbSendQuery(conn, query)
 five_results <- dbFetch(result, n = 5)
+
+conn <- dbConnect(SQLite(), "jobs.db")
+query <- "SELECT Major FROM recent_grads ORDER BY Major DESC"
+result <- dbSendQuery(conn, query)
+reverse_alphabetical <- dbFetch(result)
+
+dbClearResult(result)
+dbDisconnect(conn)
