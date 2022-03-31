@@ -16,3 +16,16 @@ condos_slope <- slope(predictor = williamsburg_north$gross_square_feet,
                       response = williamsburg_north$sale_price)
 
 slope_equal <- dplyr::near(condos_slope, coef(condos_lm_fit)[[2]])
+
+condos_slope <- slope(predictor = williamsburg_north$gross_square_feet, 
+                      response = williamsburg_north$sale_price)
+intercept <- function(predictor, response, slope){
+  beta_0 <- mean(response) - (slope * mean(predictor))
+  beta_0
+}
+
+condos_intercept <- intercept(predictor = williamsburg_north$gross_square_feet, 
+                              response = williamsburg_north$sale_price, 
+                              slope = condos_slope)
+
+intercept_equal <- dplyr::near(condos_intercept, coef(condos_lm_fit)[[1]])
