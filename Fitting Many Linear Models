@@ -32,3 +32,13 @@ library(purrr)
 #   group_by(neighborhood) %>% 
 4
 #   nest
+
+library(purrr)
+# brooklyn_nested <- brooklyn_top_ten %>% 
+#   group_by(neighborhood) %>% 
+#   nest()
+brooklyn_nested <- brooklyn_top_ten %>% 
+  group_by(neighborhood) %>% 
+  nest() %>% 
+  mutate(linear_model = map(.x = data, 
+                            .f = ~lm(sale_price ~ gross_square_feet, data = .)))
