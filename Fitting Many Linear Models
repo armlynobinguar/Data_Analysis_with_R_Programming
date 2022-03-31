@@ -58,3 +58,20 @@ brooklyn_nested <- brooklyn_top_ten %>%
   mutate(tidy_coefficients = map(.x = linear_model, 
                               .f = tidy, 
                               conf.int = TRUE))
+                              
+ # brooklyn_nested <- brooklyn_top_ten %>% 
+#   group_by(neighborhood) %>% 
+#   nest() %>% 
+#   mutate(linear_model = map(.x = data, 
+#                             .f = ~lm(sale_price ~ gross_square_feet, 
+#                                      data = .))) %>%
+#   mutate(tidy_coefficients = map(.x = linear_model, 
+#                               .f = tidy, 
+#                               conf.int = TRUE))
+brooklyn_coefficients <- brooklyn_nested %>% 
+  select(neighborhood, tidy_coefficients) %>% 
+  unnest(cols = tidy_coefficients)
+
+brooklyn_slope <- brooklyn_coefficients %>%   
+  filter(term == "gross_square_feet") %>% 
+  arrange(estimate)
