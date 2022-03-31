@@ -44,3 +44,22 @@ ggplot(data = williamsburg_all,
   theme(legend.position="bottom")
 
 stronger_relationship <- "williamsburg_north"
+
+# sale_price quartiles
+quartiles <- quantile(williamsburg_north$sale_price)
+# 75% minus 25% = interquartile range (iqr)
+iqr <- quartiles[[4]] - quartiles[[2]]
+# Outlier boundaries
+lower_bound <- quartiles[[2]] - (1.5 * iqr)
+upper_bound <- quartiles[[4]] + (1.5 * iqr)
+
+# Isolate outlier(s)
+outliers <- williamsburg_north %>% 
+  filter(sale_price > upper_bound | sale_price < lower_bound)
+ggplot(data = williamsburg_north, 
+       aes(x = gross_square_feet, y = sale_price)) +
+  geom_point(data = outliers, aes(gross_square_feet, sale_price), 
+             color = "orangered3", size = 4) + 
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  geom_smooth(method = "lm", se = FALSE)
