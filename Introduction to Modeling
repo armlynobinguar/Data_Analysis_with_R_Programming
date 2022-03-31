@@ -25,3 +25,7 @@ ggplot(data = uber_trips,
        aes(x = distance, y = cost)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE)
+
+uber_trips_lm <- read_csv("uber_trips_lm.csv")
+MAE <- mean(abs(uber_trips_lm$residuals))
+MAE_question <- TRUE
