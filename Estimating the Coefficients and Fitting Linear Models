@@ -1,0 +1,4 @@
+library(readr)
+williamsburg_north <- suppressMessages(read_csv("williamsburg_north.csv"))
+condos_lm_fit <- lm(sale_price ~ gross_square_feet, data = williamsburg_north)
+summary(condos_lm_fit)
