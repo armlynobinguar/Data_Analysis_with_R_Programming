@@ -1,0 +1,2 @@
+library(readr)
+uber_trips <- read_csv("uber_trips.csv")
