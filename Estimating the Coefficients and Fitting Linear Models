@@ -29,3 +29,15 @@ condos_intercept <- intercept(predictor = williamsburg_north$gross_square_feet,
                               slope = condos_slope)
 
 intercept_equal <- dplyr::near(condos_intercept, coef(condos_lm_fit)[[1]])
+
+library(ggplot2)
+ggplot(data = williamsburg_north, 
+       aes(x = gross_square_feet, y = sale_price)) +
+  geom_point() +
+  scale_y_continuous(labels = scales::comma) +
+  geom_smooth(method = "lm", se = FALSE) + 
+  geom_abline(aes(intercept = coef(condos_lm_fit)[[1]], 
+                  slope = coef(condos_lm_fit)[[2]]), 
+              color = "black", 
+              linetype = "dashed",
+              size = 1)
