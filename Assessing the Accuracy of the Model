@@ -10,3 +10,11 @@ ggplot(data = residuals_df, aes(x = residuals)) +
 
 p_value <- coef(summary(condos_lm_fit))[, 4][[2]]
 reject_null_hypothesis <- TRUE
+
+slope_CI_lower <- condos_lm_fit$coefficients[[2]] - 2 * 
+  coef(summary(condos_lm_fit))[, 2][[2]]
+
+slope_CI_upper <- condos_lm_fit$coefficients[[2]] + 2 * 
+  coef(summary(condos_lm_fit))[, 2][[2]]
+
+slope_CI <- confint(condos_lm_fit)[2,]
