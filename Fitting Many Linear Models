@@ -6,3 +6,15 @@ library(broom)
 condos_lm_fit <- lm(sale_price ~ gross_square_feet, data = williamsburg_north)
 
 condos_lm_tidied <- tidy(x = condos_lm_fit, conf.int = TRUE)
+
+library(tidyr)
+library(dplyr)
+brooklyn_nested <- brooklyn_top_ten %>% 
+  group_by(neighborhood) %>% 
+  nest()
+
+# Return neighborhood name with:
+# brooklyn_nested$neighborhood[[6]]
+
+# Return dataframe for Madison
+Madison <- brooklyn_nested$data[[6]]
