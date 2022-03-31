@@ -1,2 +1,12 @@
 library(readr)
 uber_trips <- read_csv("uber_trips.csv")
+
+library(ggplot2)
+
+ggplot(data = uber_trips, 
+       aes(x = date, y = cost)) +
+  geom_line()
+
+ggplot(data = uber_trips, 
+       aes(x = distance, y = cost)) +
+  geom_point()
