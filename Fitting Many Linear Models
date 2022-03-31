@@ -18,3 +18,17 @@ brooklyn_nested <- brooklyn_top_ten %>%
 
 # Return dataframe for Madison
 Madison <- brooklyn_nested$data[[6]]
+
+Copy
+script.r
+brooklyn_top_ten.csv
+williamsburg_condos.csv
+williamsburg_north.csv
+1
+library(purrr)
+2
+# brooklyn_nested <- brooklyn_top_ten %>% 
+3
+#   group_by(neighborhood) %>% 
+4
+#   nest
