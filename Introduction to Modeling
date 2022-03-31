@@ -15,3 +15,5 @@ ggplot(data = uber_trips,
 # question_2 <-
 question_1 <- 'inference'
 question_2 <- 'prediction'
+
+greater_error <- 'line_chart'
