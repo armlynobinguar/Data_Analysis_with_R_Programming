@@ -59,3 +59,12 @@ williamsburg_north <- williamsburg_north %>%
            coef(condos_lm_fit)[[2]] * gross_square_feet)
 
 near <- dplyr::near(williamsburg_north$predictions, fitted(condos_lm_fit))
+
+williamsburg_north <- williamsburg_north %>% 
+  mutate(resid_squared = residuals^2)
+
+RSS <- williamsburg_north %>% 
+  summarise(RSS = sum(resid_squared)) %>% 
+  pull()
+
+RSS_from_lm <- deviance(condos_lm_fit)
