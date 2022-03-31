@@ -38,3 +38,22 @@ RSE <- sqrt(RSS / (nrow(williamsburg_north) - 2))
 # RSE <- sqrt(1 / (nrow(williamsburg_north) - 2) * RSS)
 lm_fit_sigma <- sigma(condos_lm_fit)
 are_equal <- near(RSE, lm_fit_sigma)
+
+# Add residuals and squared-residuals
+williamsburg_north <- williamsburg_north %>%
+  mutate(residuals = resid(condos_lm_fit)) %>% 
+  mutate(resid_squared = residuals^2)
+# Compute the residual sum of squares (RSS)
+RSS <- williamsburg_north %>% 
+  summarise(RSS = sum(resid_squared)) %>% 
+  pull()
+TSS <- sum((williamsburg_north$sale_price - 
+              mean(williamsburg_north$sale_price))^2)
+
+r_squared <- 1 - RSS/TSS
+
+lm_r_squared <- summary(condos_lm_fit)$r.squared
+
+are_equal <- near(r_squared, lm_r_squared)
+
+adj_r_squared <- summary(condos_lm_fit)$adj.r.squared
