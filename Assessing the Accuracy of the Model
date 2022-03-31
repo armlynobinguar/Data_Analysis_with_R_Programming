@@ -7,3 +7,6 @@ residuals_df <- data.frame(residuals = condos_lm_fit$residuals)
 
 ggplot(data = residuals_df, aes(x = residuals)) +
   geom_histogram()
+
+p_value <- coef(summary(condos_lm_fit))[, 4][[2]]
+reject_null_hypothesis <- TRUE
