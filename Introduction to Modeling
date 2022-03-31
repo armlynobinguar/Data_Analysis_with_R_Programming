@@ -17,3 +17,11 @@ question_1 <- 'inference'
 question_2 <- 'prediction'
 
 greater_error <- 'line_chart'
+
+# ggplot(data = uber_trips, 
+#        aes(x = distance, y = cost)) +
+#   geom_point()
+ggplot(data = uber_trips, 
+       aes(x = distance, y = cost)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
