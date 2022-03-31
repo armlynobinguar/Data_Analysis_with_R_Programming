@@ -12,3 +12,8 @@ ggplot(data = williamsburg_north,
        aes(x = gross_square_feet, y = sale_price)) +
        scale_y_continuous(labels = scales::comma) +
        geom_point()
+
+# question_1 <-
+# question_2 <-
+question_1 <- FALSE
+question_2 <- TRUE
