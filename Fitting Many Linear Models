@@ -1,1 +1,8 @@
 Fitting Many Linear Models
+library(readr)
+williamsburg_north <- suppressMessages(read_csv("williamsburg_north.csv"))
+library(broom)
+
+condos_lm_fit <- lm(sale_price ~ gross_square_feet, data = williamsburg_north)
+
+condos_lm_tidied <- tidy(x = condos_lm_fit, conf.int = TRUE)
