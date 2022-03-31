@@ -2,3 +2,17 @@ library(readr)
 williamsburg_north <- suppressMessages(read_csv("williamsburg_north.csv"))
 condos_lm_fit <- lm(sale_price ~ gross_square_feet, data = williamsburg_north)
 summary(condos_lm_fit)
+
+slope <- function(predictor, response){
+  mean_predictor <- mean(predictor)
+  mean_response <- mean(response)
+  numerator <- sum((predictor - mean_predictor) * (response - mean_response))
+  denominator <- sum((predictor - mean_predictor)^2)
+  beta_1 <- numerator / denominator
+  beta_1
+}
+
+condos_slope <- slope(predictor = williamsburg_north$gross_square_feet, 
+                      response = williamsburg_north$sale_price)
+
+slope_equal <- dplyr::near(condos_slope, coef(condos_lm_fit)[[2]])
