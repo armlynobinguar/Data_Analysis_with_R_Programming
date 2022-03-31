@@ -50,3 +50,12 @@ williamsburg_north <- williamsburg_north %>%
            coef(condos_lm_fit)[[2]] * gross_square_feet)
 
 near <- dplyr::near(williamsburg_north$predictions, fitted(condos_lm_fit))
+
+library(dplyr)
+condos_lm_fit <- lm(sale_price ~ gross_square_feet, data = williamsburg_north)
+
+williamsburg_north <- williamsburg_north %>% 
+  mutate(predictions = coef(condos_lm_fit)[[1]] + 
+           coef(condos_lm_fit)[[2]] * gross_square_feet)
+
+near <- dplyr::near(williamsburg_north$predictions, fitted(condos_lm_fit))
