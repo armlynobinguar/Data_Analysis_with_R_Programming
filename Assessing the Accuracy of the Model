@@ -18,3 +18,23 @@ slope_CI_upper <- condos_lm_fit$coefficients[[2]] + 2 *
   coef(summary(condos_lm_fit))[, 2][[2]]
 
 slope_CI <- confint(condos_lm_fit)[2,]
+
+library(dplyr)
+# Add residuals and squared-residuals
+williamsburg_north <- williamsburg_north %>%
+  mutate(residuals = resid(condos_lm_fit)) %>% 
+  mutate(resid_squared = residuals^2)
+# Compute the residual sum of squares (RSS)
+RSS <- williamsburg_north %>% 
+  summarise(RSS = sum(resid_squared)) %>% 
+  pull()
+# Extract RSS from model output
+RSS_from_lm <- deviance(condos_lm_fit)
+# Optional: check RSS equality
+near(RSS, deviance(condos_lm_fit))
+# Manual RSE
+RSE <- sqrt(RSS / (nrow(williamsburg_north) - 2))
+# Alternate method for RSE
+# RSE <- sqrt(1 / (nrow(williamsburg_north) - 2) * RSS)
+lm_fit_sigma <- sigma(condos_lm_fit)
+are_equal <- near(RSE, lm_fit_sigma)
