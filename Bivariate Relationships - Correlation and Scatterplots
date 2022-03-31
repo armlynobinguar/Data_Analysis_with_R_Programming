@@ -63,3 +63,11 @@ ggplot(data = williamsburg_north,
   geom_point() +
   scale_y_continuous(labels = scales::comma) +
   geom_smooth(method = "lm", se = FALSE)
+
+library(tibble)
+correlation_wburg_all <- williamsburg_all %>%
+  select(gross_square_feet, sale_price) %>%
+  cor(use = "pairwise.complete.obs") %>% 
+  as_tibble(rownames = "variable")
+
+greater_correlation <- "williamsburg_north"
