@@ -1,2 +1,14 @@
 library(readr)
 williamsburg_north <- read_csv("williamsburg_north.csv")
+
+library(ggplot2)
+
+ggplot(data = williamsburg_north, 
+       aes(x = year_built, y = sale_price)) +
+       scale_y_continuous(labels = scales::comma) +
+       geom_point()
+
+ggplot(data = williamsburg_north, 
+       aes(x = gross_square_feet, y = sale_price)) +
+       scale_y_continuous(labels = scales::comma) +
+       geom_point()
