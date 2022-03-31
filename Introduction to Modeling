@@ -10,3 +10,8 @@ ggplot(data = uber_trips,
 ggplot(data = uber_trips, 
        aes(x = distance, y = cost)) +
   geom_point()
+
+# question_1 <- 
+# question_2 <-
+question_1 <- 'inference'
+question_2 <- 'prediction'
