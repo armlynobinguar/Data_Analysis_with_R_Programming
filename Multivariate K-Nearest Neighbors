@@ -3,3 +3,10 @@ dc_listings <- dc_listings %>%
            -latitude, -longitude, -zipcode, 
            -host_response_rate, -host_acceptance_rate, -host_listings_count)
 dc_columns <- colnames(dc_listings)
+
+dc_listings <- dc_listings %>%
+  filter(
+    !is.na(bedrooms),
+    !is.na(bathrooms),
+    !is.na(beds)
+    )
