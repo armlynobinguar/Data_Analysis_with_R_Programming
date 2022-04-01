@@ -4,3 +4,9 @@ colnames(dc_listings)
 has_missing <- TRUE
 
 predicted_rent <- mean(c(476, 750, 1128))
+
+dc_listings <- read.csv('dc_airbnb.csv')
+first_row_acc_value <- dc_listings$accommodates[1]
+our_acc_value <- 3
+
+first_distance <- abs(our_acc_value - first_row_acc_value)
