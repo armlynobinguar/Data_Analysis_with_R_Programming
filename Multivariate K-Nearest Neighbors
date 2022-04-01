@@ -10,3 +10,55 @@ dc_listings <- dc_listings %>%
     !is.na(bathrooms),
     !is.na(beds)
     )
+    
+    set.seed(1)
+library(caret)
+train_indices <- createDataPartition(y = dc_listings[["tidy_price"]],
+                                     p = 0.7,
+                                     list = FALSE)
+train_listings <- dc_listings[train_indices,]
+test_listings <- dc_listings[-train_indices,]
+train_control <- trainControl(method = "none")
+knn_model <- train(tidy_price ~ bedrooms + maximum_nights,
+                   data = train_listings,
+                   method = "knn",
+                   trControl = train_control,
+                   preProcess = c("center", "scale"))
+
+# Check code run
+set.seed(1)
+library(readr)
+library(dplyr)
+library(stringr)
+dc_listings <- read.csv('tidy_dc_airbnb.csv') %>%
+  select(-room_type, -city, -state, 
+         -latitude, -longitude, -zipcode, 
+         -host_response_rate, -host_acceptance_rate, -host_listings_count,
+         -cleaning_fee, -security_deposit) %>%
+  filter(
+    !is.na(bedrooms),
+    !is.na(bathrooms),
+    !is.na(beds)
+  )
+library(caret)
+train_indices <- createDataPartition(y = dc_listings[["tidy_price"]],
+                                     p = 0.7,
+                                     list = FALSE)
+train_listings <- dc_listings[train_indices,]
+test_listings <- dc_listings[-train_indices,]
+train_control <- trainControl(method = "none")
+knn_model <- train(tidy_price ~ bedrooms + maximum_nights,
+                   data = train_listings,
+                   method = "knn",
+                   trControl = train_control,
+                   preProcess = c("center", "scale"))
+
+condition1 <- function() {
+    if (length(knn_model[["coefnames"]]) == 2) {
+        return(c(TRUE))
+    } else {
+        return(c(FALSE, "The model doesn't appear to have the correct number of features."))
+    }
+}
+
+print(condition1())
