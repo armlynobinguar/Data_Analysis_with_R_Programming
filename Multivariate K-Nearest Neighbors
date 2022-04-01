@@ -115,3 +115,17 @@ long_test_listings <- test_listings %>%
     names_to = "model",
     values_to = "sq_error"
   )
+
+set.seed(1)
+test_listings <- test_listings %>%
+  pivot_longer(
+    cols = two_feature_sq_error:three_feature_sq_error,
+    names_to = "model",
+    values_to = "sq_error"
+  )
+rmse_by_model <- test_listings %>%
+  group_by(model) %>%
+  summarize(
+      rmse = sqrt(mean(sq_error))
+  )
+better_model <- "three_feature"
