@@ -32,3 +32,21 @@ knn_model <- train(tidy_price ~ accommodates + maximum_nights,
                    method = "knn", 
                    trControl = train_control)
 test_predictions <- predict(knn_model, newdata = test_listings)
+
+set.seed(1)
+library(caret)
+train_indices <- createDataPartition(y = dc_listings[["tidy_price"]],
+                                     p = 0.7,
+                                     list = FALSE)
+train_listings <- dc_listings[train_indices,]
+test_listings <- dc_listings[-train_indices,]
+train_control <- trainControl(method = "none")
+knn_model <- train(tidy_price ~ accommodates + maximum_nights, 
+                   data = train_listings, 
+                   method = "knn", 
+                   trControl = train_control)
+test_predictions <- predict(knn_model, newdata = test_listings)
+test_listings <- test_listings %>%
+  mutate(
+    error = tidy_price - test_predictions
+  )
