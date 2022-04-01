@@ -11,3 +11,6 @@ train_indices <- createDataPartition(dc_listings$tidy_price, p = 0.8, list = FAL
 train_listings <- dc_listings[train_indices,]
 test_listings <- dc_listings[-train_indices,]
 five_fold_control <- trainControl(method = "cv", number = 5)
+
+loocv_has_high <- "bias"
+two_fold_has_high <- "variance"
