@@ -2,3 +2,5 @@ library(readr)
 dc_listings <- read.csv('dc_airbnb.csv')
 colnames(dc_listings)
 has_missing <- TRUE
+
+predicted_rent <- mean(c(476, 750, 1128))
