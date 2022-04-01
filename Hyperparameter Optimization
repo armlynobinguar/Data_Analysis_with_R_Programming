@@ -5,3 +5,12 @@ train_indices <- createDataPartition(y = dc_listings[["tidy_price"]],
                                      list = FALSE)
 train_listings <- dc_listings[train_indices,]
 test_listings <- dc_listings[-train_indices,]
+
+set.seed(1)
+library(caret)
+train_indices <- createDataPartition(y = dc_listings[["tidy_price"]], 
+                                     p = 0.8, 
+                                     list = FALSE)
+train_lisitings <- dc_listings[train_indices,]
+test_lisitings <- dc_listings[-train_indices,]
+knn_grid <- expand.grid(k = 1:20)
