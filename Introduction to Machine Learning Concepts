@@ -10,3 +10,10 @@ first_row_acc_value <- dc_listings$accommodates[1]
 our_acc_value <- 3
 
 first_distance <- abs(our_acc_value - first_row_acc_value)
+
+dc_listings <- read.csv('dc_airbnb.csv')
+our_acc_value <- 3
+dc_listings <- dc_listings %>%
+  mutate(
+    distance = abs(accommodates - our_acc_value)
+  )
