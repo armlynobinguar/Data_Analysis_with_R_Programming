@@ -1,0 +1,5 @@
+dc_listings <- dc_listings %>%
+    select(-room_type, -city, -state, 
+           -latitude, -longitude, -zipcode, 
+           -host_response_rate, -host_acceptance_rate, -host_listings_count)
+dc_columns <- colnames(dc_listings)
