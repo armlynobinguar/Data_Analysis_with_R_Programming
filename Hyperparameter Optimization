@@ -30,3 +30,5 @@ knn_model <- train(tidy_price ~ accommodates + bedrooms + bathrooms,
                    trControl = train_control,
                    preProcess = c("center", "scale"),
                    tuneGrid = knn_grid)
+                   
+                   times_test_data_used <- 1 # The test data should only be touched after we have our final model!
