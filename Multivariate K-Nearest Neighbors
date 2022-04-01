@@ -62,3 +62,30 @@ condition1 <- function() {
 }
 
 print(condition1())
+
+set.seed(1)
+library(caret)
+train_indices <- createDataPartition(y = dc_listings[["tidy_price"]],
+                                     p = 0.7,
+                                     list = FALSE)
+train_listings <- dc_listings[train_indices,]
+test_listings <- dc_listings[-train_indices,]
+train_control <- trainControl(method = "none")
+
+two_feature_knn_model <- train(tidy_price ~ accommodates + bedrooms,
+                               data = train_listings,
+                               method = "knn",
+                               trControl = train_control,
+                               preProcess = c("center", "scale"))
+three_feature_knn_model <- train(tidy_price ~ accommodates + bedrooms + maximum_nights,
+                               data = train_listings,
+                               method = "knn",
+                               trControl = train_control,
+                               preProcess = c("center", "scale"))
+test_listings <- test_listings %>%
+  mutate(
+    two_feature_predictions = predict(two_feature_knn_model, newdata = test_listings),
+    three_feature_predictions = predict(three_feature_knn_model, newdata = test_listings),
+    two_feature_sq_error = (tidy_price - two_feature_predictions)^2,
+    three_feature_sq_error = (tidy_price - three_feature_predictions)^2
+  )
