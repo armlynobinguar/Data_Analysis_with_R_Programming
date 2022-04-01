@@ -17,3 +17,10 @@ dc_listings <- dc_listings %>%
   mutate(
     distance = abs(accommodates - our_acc_value)
   )
+
+dc_listings <- dc_listings %>%
+  mutate(
+    distance = abs(accommodates - our_acc_value)
+  )
+zero_distance_indices <- which(dc_listings$distance == 0)
+random_three_indices <- sample(zero_distance_indices, 3, replace = FALSE)
