@@ -1,0 +1,14 @@
+library(readr)
+wnba <- read_csv("wnba.csv")
+
+# variables <- c("Three_PA", "Age", "AST", "Birth_Place", "Birthdate", "BMI", "College", 
+#                "DREB", "Experience", "FGA", "FGM", "FT_perc", "FTA", "FTM", "Games_Played", 
+#                "Height", "MIN", "Name", "OREB", "Pos", "PTS", "REB", "Team", "Weight")
+qualitative_vars <- c("Birth_Place", "College", "Name", "Pos", "Team")
+
+quantitative_vars <- c("Three_PA", "Age", "AST", "Birthdate", "BMI", "DREB", "Experience", 
+                       "FGA", "FGM", "FT_perc", "FTA", "FTM", "Games_Played", "Height", 
+                       "MIN", "OREB", "PTS", "REB", "Weight")
+
+qualitative_vars <- sort(qualitative_vars)
+quantitative_vars <- sort(quantitative_vars)
