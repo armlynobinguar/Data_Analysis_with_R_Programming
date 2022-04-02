@@ -16,3 +16,17 @@ total_points_estimates <- wnba %>%
   summarise(mean_pts_season = mean(PTS),
             mean_pts_game = mean(pts_game)) %>% 
   arrange(Pos)
+  
+  set.seed(1)
+under_12 <- wnba %>% 
+  filter(Games_Played <= 12) %>% 
+  sample_n(1)
+btw_13_22 <- wnba %>% 
+  filter(Games_Played > 12 & Games_Played <= 22) %>% 
+  sample_n(2)
+over_22 <- wnba %>% 
+  filter(Games_Played > 22) %>% 
+  sample_n(7)
+
+combined <- bind_rows(under_12, btw_13_22, over_22)
+mean(combined$PTS)
