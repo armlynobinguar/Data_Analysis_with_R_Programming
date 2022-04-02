@@ -30,3 +30,34 @@ over_22 <- wnba %>%
 
 combined <- bind_rows(under_12, btw_13_22, over_22)
 mean(combined$PTS)
+
+library(purrr)
+library(tibble)
+library(ggplot2)
+set.seed(1)
+sample_mean <- function(x){
+under_12 <- wnba %>% 
+  filter(Games_Played <= 12) %>% 
+  sample_n(1)
+btw_13_22 <- wnba %>% 
+  filter(Games_Played > 12 & Games_Played <= 22) %>% 
+  sample_n(2)
+over_22 <- wnba %>% 
+  filter(Games_Played > 22) %>% 
+  sample_n(7)
+
+combined <- bind_rows(under_12, btw_13_22, over_22)
+mean(combined$PTS)
+}
+
+sample_number <- 1:100
+
+mean_points_season <- map_dbl(sample_number, sample_mean)
+
+df <- tibble(sample_number, mean_points_season)
+
+ggplot(data = df) + 
+    aes(x = sample_number, y = mean_points_season) +
+    geom_point() +
+    geom_hline(yintercept = mean(wnba$PTS), color = "blue") +
+    ylim(80, 320)
