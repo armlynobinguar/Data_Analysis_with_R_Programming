@@ -4,3 +4,9 @@
 #                "Height", "MIN", "Name", "OREB", "Pos", 
 #                "PTS", "REB", "Team", "Height_labels")
 nominal_scale <- sort(c("Name", "Team", "Pos", "Birth_Place", "College"))
+question_1 <- TRUE
+question_2 <- FALSE
+question_3 <- FALSE
+question_4 <- TRUE
+question_5 <- FALSE
+question_6 <- FALSE
