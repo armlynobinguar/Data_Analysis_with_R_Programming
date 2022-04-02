@@ -6,3 +6,9 @@ question_5 <- 'sample'
 
 library(readr)
 wnba <- read_csv("wnba.csv")
+
+set.seed(1)
+parameter <- max(wnba$Games_Played)
+sample <- sample(wnba$Games_Played, size = 30)
+statistic <- max(sample)
+sampling_error <- parameter - statistic
