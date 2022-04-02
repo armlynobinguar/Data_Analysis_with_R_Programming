@@ -81,3 +81,13 @@ ggplot(data = df) +
     geom_point() +
     geom_hline(yintercept = mean(wnba$PTS), color = "blue") +
     ylim(80, 320)
+    
+    set.seed(10)
+clusters <-  unique(wnba$Team) %>% sample(size = 4)
+
+sample <- wnba %>% filter(Team %in% clusters)
+
+sampling_error_height <- mean(wnba$Height) - mean(sample$Height)
+sampling_error_age <- mean(wnba$Age) - mean(sample$Age)
+sampling_error_games <- mean(wnba$Games_Played) - mean(sample$Games_Played)
+sampling_error_points <- mean(wnba$PTS) - mean(sample$PTS)
