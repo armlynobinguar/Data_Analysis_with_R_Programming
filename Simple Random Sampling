@@ -1,0 +1,5 @@
+question_1 <- 'population'
+question_2 <- 'population'
+question_3 <- 'sample'
+question_4 <- 'population'
+question_5 <- 'sample'
