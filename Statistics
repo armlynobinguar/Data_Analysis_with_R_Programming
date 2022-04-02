@@ -1,0 +1,6 @@
+# variables <- c("Three_PA", "Age", "AST", "Birth_Place", "Birthdate", 
+#                "BMI", "College", "DREB", "Experience", "FGA", 
+#                "FGM", "FT_perc", "FTA", "FTM", "Games_Played", 
+#                "Height", "MIN", "Name", "OREB", "Pos", 
+#                "PTS", "REB", "Team", "Height_labels")
+nominal_scale <- sort(c("Name", "Team", "Pos", "Birth_Place", "College"))
