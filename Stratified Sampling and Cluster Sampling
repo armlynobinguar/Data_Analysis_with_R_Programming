@@ -5,3 +5,14 @@ set.seed(1)
 thirty_samples <-  sample_n(wnba, size = 30)
 mean_age <- mean(thirty_samples$Age)
 mean_games <- mean(thirty_samples$Games_Played)
+
+set.seed(1)
+wnba <- wnba %>%
+  mutate(pts_game = PTS/Games_Played) 
+
+total_points_estimates <- wnba %>%
+  group_by(Pos) %>%
+  sample_n(10) %>% 
+  summarise(mean_pts_season = mean(PTS),
+            mean_pts_game = mean(pts_game)) %>% 
+  arrange(Pos)
