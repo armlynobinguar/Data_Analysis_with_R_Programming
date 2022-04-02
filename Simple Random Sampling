@@ -12,3 +12,8 @@ parameter <- max(wnba$Games_Played)
 sample <- sample(wnba$Games_Played, size = 30)
 statistic <- max(sample)
 sampling_error <- parameter - statistic
+
+set.seed(1)
+sample_1 <- mean(sample(wnba$PTS, size = 10))
+sample_2 <- mean(sample(wnba$PTS, size = 10))
+sample_3 <- mean(sample(wnba$PTS, size = 10))
