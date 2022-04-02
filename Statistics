@@ -22,3 +22,18 @@ ratio_scale <- sort(c("Three_PA", "Age", "AST", "BMI", "DREB", "Experience", "FG
 #                 "Games_Played", "Height", "MIN", "OREB", "PTS", "REB", "Weight"))
 continuous <- sort(c("Age", "BMI", "Experience", "FT_perc", "Height", "MIN", "Weight"))
 discrete <- sort(c("Three_PA", "AST", "DREB", "FGA", "FGM", "FTA", "FTM", "Games_Played", "OREB", "PTS", "REB"))
+
+# bmi <- list(
+#   "21.201" = c(, ),
+#   "21.329" = c(, ),
+#   "23.875" = c(, ),
+#   "24.543" = c(, ),
+#   "25.469" = c(, ))
+bmi <- list(
+  "21.201" = c(21.2005, 21.2015),
+  "21.329" = c(21.3285, 21.3295),
+  "23.875" = c(23.8745, 23.8755),
+  "24.543" = c(24.5425, 24.5435),
+  "25.469" = c(25.4685, 25.4695))
+
+bmi
