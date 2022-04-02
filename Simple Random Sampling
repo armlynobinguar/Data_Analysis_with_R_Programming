@@ -3,3 +3,6 @@ question_2 <- 'population'
 question_3 <- 'sample'
 question_4 <- 'population'
 question_5 <- 'sample'
+
+library(readr)
+wnba <- read_csv("wnba.csv")
