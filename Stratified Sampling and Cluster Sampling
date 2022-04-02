@@ -61,3 +61,23 @@ ggplot(data = df) +
     geom_point() +
     geom_hline(yintercept = mean(wnba$PTS), color = "blue") +
     ylim(80, 320)
+    
+    set.seed(1)
+sample_mean <- function(x) {
+  sample <- wnba %>% 
+  group_by(games_stratum) %>% 
+  sample_frac(.07)
+
+  mean(sample$PTS)
+}
+
+sample_number <- 1:100
+
+mean_points_season <- map_dbl(sample_number, sample_mean)
+
+df <- tibble(sample_number, mean_points_season)
+ggplot(data = df) + 
+    aes(x = sample_number, y = mean_points_season) +
+    geom_point() +
+    geom_hline(yintercept = mean(wnba$PTS), color = "blue") +
+    ylim(80, 320)
