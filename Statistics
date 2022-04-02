@@ -10,3 +10,10 @@ question_3 <- FALSE
 question_4 <- TRUE
 question_5 <- FALSE
 question_6 <- FALSE
+
+# quantitative_vars <- c("Three_PA", "Age", "AST", "Birthdate", "BMI", "DREB", "Experience", 
+#                        "FGA", "FGM", "FT_perc", "FTA", "FTM", "Games_Played", "Height", 
+#                        "MIN", "OREB", "PTS", "REB", "Weight", "Weight_deviation")
+interval_scale <- sort(c("Birthdate", "Weight_deviation"))
+ratio_scale <- sort(c("Three_PA", "Age", "AST", "BMI", "DREB", "Experience", "FGA", "FGM", "FT_perc", "FTA", "FTM", 
+                "Games_Played", "Height", "MIN", "OREB", "PTS", "REB", "Weight"))
