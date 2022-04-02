@@ -1,0 +1,7 @@
+library(readr)
+library(dplyr)
+wnba <- read_csv("wnba.csv")
+set.seed(1)
+thirty_samples <-  sample_n(wnba, size = 30)
+mean_age <- mean(thirty_samples$Age)
+mean_games <- mean(thirty_samples$Games_Played)
