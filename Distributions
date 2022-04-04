@@ -1,3 +1,12 @@
 library(readr)
 library(tidyr)
 wnba <- read_csv("wnba.csv")
+
+library(dplyr)
+freq_dist_pos <- wnba %>%
+  group_by(Pos) %>%
+  summarize(Freq = n())
+            
+freq_dist_height <- wnba %>%
+  group_by(Height) %>%
+  summarize(Freq = n())
