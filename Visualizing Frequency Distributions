@@ -18,3 +18,23 @@ ggplot(data = wnba,
   theme(legend.position = "none") +
   labs(x = "Experience Level",
        y = "Percentage")
+
+library(stringr)
+exp_prop <- wnba %>% 
+  group_by(Exp_ordinal) %>% 
+  summarize(Prop = n() / nrow(wnba))
+
+ggplot(data = exp_prop, 
+       aes(x = "", y = Prop, fill = Exp_ordinal)) + 
+  geom_bar(stat = "identity", width = 0.25) +
+  coord_flip() +
+  geom_text(aes(label = str_c(round(Prop * 100), "%")), 
+            position = position_stack(vjust = 0.5)) + 
+  labs(x = NULL, 
+       y = NULL, 
+       fill = NULL, 
+       title = "Player Distribution by Experience Level") + 
+  theme_classic() + 
+  theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank())
