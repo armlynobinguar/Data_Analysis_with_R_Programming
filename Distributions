@@ -1,0 +1,3 @@
+library(readr)
+library(tidyr)
+wnba <- read_csv("wnba.csv")
