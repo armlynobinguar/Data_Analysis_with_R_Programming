@@ -19,3 +19,11 @@ age_descending <- wnba %>%
   group_by(Age) %>%
   summarize(Freq = n()) %>% 
   arrange(desc(Age))
+
+points_levels <- c("well below average", "below average", "average points", "above average", "well above average")
+
+points_ordinal <- wnba %>% 
+  group_by(Points_labels) %>% 
+  summarize(Freq = n()) %>% 
+  arrange(factor(Points_labels, 
+                 levels = points_levels))
