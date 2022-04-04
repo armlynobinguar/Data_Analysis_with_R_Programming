@@ -57,3 +57,18 @@ ggplot(data = exp_prop,
   theme(axis.line = element_blank(),
           axis.text = element_blank(),
           axis.ticks = element_blank())
+          
+# ggplot(data = wnba, 
+#        aes(x = Games_Played)) +
+#   geom_histogram()
+
+# ggplot(data = wnba, 
+#        aes(x = Games_Played)) +
+#   geom_histogram(bins = 10)
+ggplot(data = wnba, 
+       aes(x = Games_Played)) +
+  geom_histogram(bins = 4)
+
+ggplot(data = wnba, 
+       aes(x = Games_Played)) +
+  geom_histogram(bins = 60)
