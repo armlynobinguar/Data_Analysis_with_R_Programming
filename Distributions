@@ -10,3 +10,12 @@ freq_dist_pos <- wnba %>%
 freq_dist_height <- wnba %>%
   group_by(Height) %>%
   summarize(Freq = n())
+
+age_ascending <- wnba %>%
+  group_by(Age) %>%
+  summarize(Freq = n())
+
+age_descending <- wnba %>%
+  group_by(Age) %>%
+  summarize(Freq = n()) %>% 
+  arrange(desc(Age))
