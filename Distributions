@@ -77,3 +77,14 @@ pts_grouped_freq_table <- wnba %>%
 wnba %>% 
   group_by(min_categories) %>% 
   summarize(Freq = n())
+  
+  wnba <- wnba %>% 
+  mutate(min_categories = 
+           cut(MIN, 
+               breaks = c(0, 150, 300, 450, 600, 750, 900, 1050), 
+               dig.lab = 4))
+
+min_grouped_freq_table <- wnba %>% 
+  group_by(min_categories) %>% 
+  summarize(Freq = n()) %>% 
+  mutate(Percentage = Freq / nrow(wnba) * 100)
