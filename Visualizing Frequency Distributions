@@ -72,3 +72,12 @@ ggplot(data = wnba,
 ggplot(data = wnba, 
        aes(x = Games_Played)) +
   geom_histogram(bins = 60)
+  
+  wnba <- wnba %>% 
+  mutate(games_categories = cut(Games_Played, breaks = 10, dig.lab = 4))
+games_binwidth <- (max(wnba$Games_Played) - min(wnba$Games_Played)) / 10
+
+ggplot(data = wnba, 
+       aes(x = Games_Played)) +
+  geom_histogram(boundary = min(wnba$Games_Played), 
+                 binwidth = games_binwidth)
