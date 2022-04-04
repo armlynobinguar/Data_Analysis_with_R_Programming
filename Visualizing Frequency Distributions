@@ -8,3 +8,13 @@ ggplot(data = wnba,
   geom_bar() + 
   coord_flip() +  
   theme(legend.position = "none")
+
+ggplot(data = wnba, 
+       aes(x = Exp_ordinal, 
+           y = ..prop.. * 100, 
+           group = 1, 
+           fill = factor(..x..))) +
+  geom_bar() + 
+  theme(legend.position = "none") +
+  labs(x = "Experience Level",
+       y = "Percentage")
