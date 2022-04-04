@@ -45,3 +45,6 @@ age_30_or_older <- wnba %>%
   summarize(Freq = n()) %>% 
   mutate(Prop = Freq / nrow(wnba)) %>%
   mutate(Percentage = Freq / nrow(wnba) * 100)
+
+percentile_50_or_less <- mean(wnba$Games_Played <= 17) * 100
+percentile_above_50 <- mean(wnba$Games_Played > 17) * 100
