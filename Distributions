@@ -48,3 +48,12 @@ age_30_or_older <- wnba %>%
 
 percentile_50_or_less <- mean(wnba$Games_Played <= 17) * 100
 percentile_above_50 <- mean(wnba$Games_Played > 17) * 100
+
+age_upper_quartile <- quantile(wnba$Age, probs = 0.75)
+age_middle_quartile <- quantile(wnba$Age, probs = 0.50)
+age_95th_percentile <- quantile(wnba$Age, probs = 0.95)
+
+wnba_age_percentiles <- wnba %>% 
+  mutate(cume_dist_age = cume_dist(Age)) %>% 
+  select(Name, Age, cume_dist_age) %>% 
+  arrange(Age)
