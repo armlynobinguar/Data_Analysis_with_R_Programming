@@ -57,3 +57,16 @@ wnba_age_percentiles <- wnba %>%
   mutate(cume_dist_age = cume_dist(Age)) %>% 
   select(Name, Age, cume_dist_age) %>% 
   arrange(Age)
+
+wnba <- wnba %>% 
+  mutate(points_categories = cut(PTS, breaks = 10, dig.lab = 4))
+
+pts_freq_table <- wnba %>% 
+  group_by(PTS) %>% 
+  summarize(Freq = n())
+
+pts_grouped_freq_table <- wnba %>% 
+  group_by(points_categories) %>% 
+  summarize(Freq = n()) %>% 
+  mutate(Percentage = Freq / nrow(wnba) * 100) %>% 
+  arrange(desc(points_categories))
