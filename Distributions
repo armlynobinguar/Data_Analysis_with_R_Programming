@@ -27,3 +27,21 @@ points_ordinal <- wnba %>%
   summarize(Freq = n()) %>% 
   arrange(factor(Points_labels, 
                  levels = points_levels))
+
+age_25 <- wnba %>%
+  filter(Age == 25) %>% 
+  summarize(Freq = n()) %>% 
+  mutate(Prop = Freq / nrow(wnba)) %>%
+  mutate(Percentage = Freq / nrow(wnba) * 100)
+
+age_23_or_under <- wnba %>%
+  filter(Age <= 23) %>% 
+  summarize(Freq = n()) %>% 
+  mutate(Prop = Freq / nrow(wnba)) %>%
+  mutate(Percentage = Freq / nrow(wnba) * 100)
+
+age_30_or_older <- wnba %>%
+  filter(Age >= 30) %>% 
+  summarize(Freq = n()) %>% 
+  mutate(Prop = Freq / nrow(wnba)) %>%
+  mutate(Percentage = Freq / nrow(wnba) * 100)
