@@ -1,0 +1,10 @@
+ggplot(data = wnba, 
+       aes(x = Exp_ordinal, fill = Exp_ordinal)) +
+  geom_bar() + 
+  theme(legend.position = "none")
+
+ggplot(data = wnba, 
+       aes(x = Exp_ordinal, fill = Exp_ordinal)) +
+  geom_bar() + 
+  coord_flip() +  
+  theme(legend.position = "none")
