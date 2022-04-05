@@ -13,3 +13,13 @@ equal_distances  <-  sum(distances_above) == sum(distances_below)
 set.seed(1)
 distribution <- sample.int(100, size=10)
 ndistribution <- replicate(n=50, expr=sample.int(25, size=5))
+
+set.seed(1)
+
+checkDist <- function(){
+    distribution <- sample.int(1000, size=10)
+    mean  <-  sum(distribution) / length(distribution)
+    round(sum(distribution - mean)) == 0
+}
+
+equal_distances <- sum(replicate(n=5000, expr=checkDist()))
