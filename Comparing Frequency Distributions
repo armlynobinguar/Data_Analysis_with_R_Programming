@@ -7,3 +7,16 @@ exp_by_pos <- wnba %>%
 pos_by_exp <- wnba %>% 
   group_by(Exp_ordinal, Pos) %>% 
   summarize(Freq = n())
+
+library(ggplot2)
+ggplot(data = wnba, 
+         aes(x = Pos, fill = Exp_ordinal)) +
+  geom_bar(position = "dodge", stat = "count") +
+  labs(x = "Position",
+       y = "Frequency")
+
+ggplot(data = pos_by_exp,
+         aes(x = Pos, y = Freq, fill = Exp_ordinal)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  labs(x = "Position",
+       y = "Frequency")
