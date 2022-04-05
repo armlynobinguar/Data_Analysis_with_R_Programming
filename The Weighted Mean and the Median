@@ -25,3 +25,13 @@ weighted_mean  <-  all_sums_together / total_n_houses
 mean_original  <-  mean(houses$SalePrice)
 
 difference  <-  round(mean_original, digits = 10) - round(weighted_mean, digits = 10)
+
+compute_weighted_mean <- function(distribution, weights) {
+    weighted_distribution  <-  distribution * weights    
+    sum(weighted_distribution) / sum(weights)
+}
+
+computed_weighted_mean  <-  compute_weighted_mean(houses_per_year$MeanPrice, houses_per_year$HousesSold)
+weighted_mean_r  <-  weighted.mean(houses_per_year$MeanPrice, houses_per_year$HousesSold)
+
+equal  <-  round(computed_weighted_mean, 10) == round(weighted_mean_r, 10)
