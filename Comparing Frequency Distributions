@@ -20,3 +20,8 @@ ggplot(data = pos_by_exp,
   geom_bar(position = "dodge", stat = "identity") +
   labs(x = "Position",
        y = "Frequency")
+ggplot(data = wnba, 
+       aes(x = age_relative, fill = min_relative)) +
+  geom_bar(position = "dodge")
+
+result <- 'reject'
