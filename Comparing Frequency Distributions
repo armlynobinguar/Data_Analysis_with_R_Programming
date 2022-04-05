@@ -25,3 +25,10 @@ ggplot(data = wnba,
   geom_bar(position = "dodge")
 
 result <- 'reject'
+
+ggplot(data = wnba,
+         aes(x = PTS, color = age_relative)) +
+  geom_density() +
+  geom_vline(aes(xintercept = mean(wnba$PTS), 
+                 linetype = "Average points"), 
+             color = "black")
