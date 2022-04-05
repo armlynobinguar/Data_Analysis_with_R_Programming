@@ -56,3 +56,10 @@ median  <-  median(houses$SalePrice)
 
 sentence_1  <-  TRUE
 sentence_2  <-  TRUE
+
+distribution_1  <-  c('mean' = 3021 , 'median' = 3001, 'mode' = 2947)
+distribution_2  <-  c('median' = 924 , 'mode' = 832, 'mean' = 962)
+distribution_3  <-  c('mode' =  202, 'mean' =  143, 'median' = 199)
+shape_1  <-  'right skew'
+shape_2  <-  'right skew'
+shape_3  <-  'left skew'
