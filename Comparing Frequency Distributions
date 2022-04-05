@@ -32,3 +32,7 @@ ggplot(data = wnba,
   geom_vline(aes(xintercept = mean(wnba$PTS), 
                  linetype = "Average points"), 
              color = "black")
+
+ggplot(data = wnba,
+         aes(x = Pos, y = Weight, color = Pos)) + 
+  geom_boxplot()
