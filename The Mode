@@ -63,3 +63,40 @@ distribution_3  <-  c('mode' =  202, 'mean' =  143, 'median' = 199)
 shape_1  <-  'right skew'
 shape_2  <-  'right skew'
 shape_3  <-  'left skew'
+
+library(dplyr)
+
+compute_mode <- function(vector) {
+    counts_df  <-  tibble(vector) %>% 
+        group_by(vector) %>% 
+        summarise(frequency = n()) %>% 
+        arrange(desc(frequency)) 
+
+    counts_df$vector[1]
+}
+library(ggplot2)
+
+ggplot(data = houses,
+    aes(x = `Mo Sold`)) +
+    geom_density(alpha = 0.1, 
+                 color='blue', 
+                 fill='blue') +
+    geom_vline(aes(xintercept = compute_mode(`Mo Sold`), 
+                   color = 'Mode'), 
+               size = 1.2 ) +
+    geom_vline(aes(xintercept = median(`Mo Sold`), 
+                   color = 'Median'), 
+               size = 1.2 ) +
+    geom_vline(aes(xintercept = mean(`Mo Sold`), 
+                   color = 'Mean'), 
+               size = 1.2 ) +
+    scale_y_continuous(labels = scales::comma) +
+    xlim(1,12)+
+    scale_colour_manual(values = c("Mode" = "green", 
+                                   "Median" = "black", 
+                                   "Mean" = "orange"), 
+                        name = "") +
+    theme_bw() + 
+    theme(legend.position='top') +
+    xlab("Mo Sold") + 
+    ylab("Density")
