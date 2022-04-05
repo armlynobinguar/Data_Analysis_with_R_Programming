@@ -4,3 +4,26 @@ houses  <-  read_tsv('AmesHousing_1.txt')
 scale_land  <-  'ordinal'
 scale_roof  <-  'nominal'
 kitchen_variable  <-  'discrete'
+
+# The function we wrote (you can copy-paste yours from the previous screen)
+library(dplyr)
+
+compute_mode <- function(vector) {
+    counts_df  <-  tibble(vector) %>% 
+        group_by(vector) %>% 
+        summarise(frequency = n()) %>% 
+        arrange(desc(frequency)) 
+
+    counts_df$vector[1]
+}
+compute_mode_table <- function(vector) {
+    counts_df  <-  tibble(vector) %>% 
+        group_by(vector) %>% 
+        summarise(frequency = n()) %>% 
+        arrange(desc(frequency)) 
+    
+    list('mode' = counts_df$vector[1], 'values' = counts_df$frequency)
+}
+
+mode <- compute_mode_table(houses$`Roof Style`)$mode
+value_counts  <-  compute_mode_table(houses$`Roof Style`)$values
