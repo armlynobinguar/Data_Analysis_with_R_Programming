@@ -27,3 +27,18 @@ compute_mode_table <- function(vector) {
 
 mode <- compute_mode_table(houses$`Roof Style`)$mode
 value_counts  <-  compute_mode_table(houses$`Roof Style`)$values
+
+library(dplyr)
+
+compute_mode <- function(vector) {
+    counts_df  <-  tibble(vector) %>% 
+        group_by(vector) %>% 
+        summarise(frequency = n()) %>% 
+        arrange(desc(frequency)) 
+
+    counts_df$vector[1]
+}
+bedroom_variable  <-  'discrete'
+bedroom_mode  <-  compute_mode(houses$`Bedroom AbvGr`)
+
+price_variable  <-  'continuous'
