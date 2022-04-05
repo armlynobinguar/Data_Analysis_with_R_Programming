@@ -42,3 +42,17 @@ bedroom_variable  <-  'discrete'
 bedroom_mode  <-  compute_mode(houses$`Bedroom AbvGr`)
 
 price_variable  <-  'continuous'
+
+library(dplyr)
+
+houses %>% 
+    mutate(intervals_group = cut(SalePrice, 
+                                 breaks = seq(0,800000,100000))) %>%
+    group_by(intervals_group) %>% 
+    summarize(frequency = n())
+mode  <-  150000
+mean  <-  mean(houses$SalePrice)
+median  <-  median(houses$SalePrice)
+
+sentence_1  <-  TRUE
+sentence_2  <-  TRUE
