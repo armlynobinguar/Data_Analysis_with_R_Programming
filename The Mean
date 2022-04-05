@@ -64,3 +64,26 @@ compute_mean <- function(distribution) {
 computed_mean  <-  compute_mean(houses$SalePrice)
 r_mean  <-  mean(houses$SalePrice)
 means_are_equal  <-  (computed_mean == r_mean)
+
+library(tibble)
+library(ggplot2)
+library(purrr)
+
+set.seed(4)
+
+parameter  <-  mean(houses$SalePrice)
+
+sample_sizes  <-  seq(5, by=29, length.out=100)
+
+sampling_errors <- map_dbl(sample_sizes, 
+                           function(x) parameter - mean(sample(houses$SalePrice, 
+                                                               size=x)) )
+
+df <- tibble(x = sample_sizes, y = sampling_errors)
+
+ggplot(data = df, aes(x = sample_sizes, y = sampling_errors)) +
+    geom_point(size=2) +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 2930) + 
+    labs(x = "Sample size", 
+         y = "Sampling error")
