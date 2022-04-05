@@ -27,3 +27,20 @@ equal_distances <- sum(replicate(n=5000, expr=checkDist()))
 one  <-  FALSE # we don't use the symbol mu for the sample mean
 two  <-  FALSE # Should be N = 8, not n = 8
 three  <-  FALSE # x-bar denotes the sample mean, not the population mean
+
+distribution_1  <-  c(42, 24, 32, 11)
+distribution_2  <-  c(102, 32, 74, 15, 38, 45, 22)
+distribution_3  <-  c(3, 12, 7, 2, 15, 1, 21)
+compute_mean <- function(distribution) {
+    N <- length(distribution)
+    sum_of_the_distribution = 0
+    for ( i in 1:N) {
+        sum_of_the_distribution <- sum_of_the_distribution + distribution[i]
+    }
+
+    sum_of_the_distribution / N
+}
+
+mean_1  <-  compute_mean(distribution_1)
+mean_2  <-  compute_mean(distribution_2)
+mean_3  <-  compute_mean(distribution_3)
