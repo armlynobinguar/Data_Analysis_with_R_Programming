@@ -1,0 +1,11 @@
+distribution  <-  c(0,2,3,3,3,4,13)
+mean  <-  sum(distribution) / length(distribution)
+center  <-  FALSE
+
+values_above  <-  distribution[distribution > mean]
+values_below  <-  distribution[distribution < mean]
+
+distances_above <- values_above - mean
+distances_below <- mean - values_below
+
+equal_distances  <-  sum(distances_above) == sum(distances_below)
