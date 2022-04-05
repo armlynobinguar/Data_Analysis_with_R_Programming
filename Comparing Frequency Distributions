@@ -36,3 +36,16 @@ ggplot(data = wnba,
 ggplot(data = wnba,
          aes(x = Pos, y = Weight, color = Pos)) + 
   geom_boxplot()
+
+# ggplot(data = wnba,
+#          aes(x = "", y = Games_Played, group = 1)) + 
+#   geom_boxplot()
+iqr <- 29 - 22
+lower_bound <- 22 - (1.5 * iqr)
+upper_bound <- 29 + (1.5 * iqr)
+outliers_low <- sum(wnba$Games_Played < lower_bound) # True values will count as 1 in the summation
+outliers_high <- sum(wnba$Games_Played > upper_bound)
+
+ggplot(data = wnba,
+         aes(x = "", y = Games_Played, group = 1)) + 
+  geom_boxplot()
