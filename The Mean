@@ -9,3 +9,7 @@ distances_above <- values_above - mean
 distances_below <- mean - values_below
 
 equal_distances  <-  sum(distances_above) == sum(distances_below)
+
+set.seed(1)
+distribution <- sample.int(100, size=10)
+ndistribution <- replicate(n=50, expr=sample.int(25, size=5))
