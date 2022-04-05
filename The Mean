@@ -23,3 +23,7 @@ checkDist <- function(){
 }
 
 equal_distances <- sum(replicate(n=5000, expr=checkDist()))
+
+one  <-  FALSE # we don't use the symbol mu for the sample mean
+two  <-  FALSE # Should be N = 8, not n = 8
+three  <-  FALSE # x-bar denotes the sample mean, not the population mean
