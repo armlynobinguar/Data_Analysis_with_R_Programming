@@ -44,3 +44,10 @@ compute_mean <- function(distribution) {
 mean_1  <-  compute_mean(distribution_1)
 mean_2  <-  compute_mean(distribution_2)
 mean_3  <-  compute_mean(distribution_3)
+
+library(readr)
+houses  <-  read_tsv('AmesHousing_1.txt')
+
+one  <-  TRUE # every column that describes years is measured on an interval scale
+two  <-  FALSE # `SalePrice` is measured on a ratio scale
+three  <-  TRUE # The data set has less values than the initial one with 3970 rows which we don't know either whether it represents a population
