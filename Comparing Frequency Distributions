@@ -1,0 +1,9 @@
+library(dplyr)
+library(readr)
+exp_by_pos <- wnba %>% 
+  group_by(Pos, Exp_ordinal) %>% 
+  summarize(Freq = n())
+
+pos_by_exp <- wnba %>% 
+  group_by(Exp_ordinal, Pos) %>% 
+  summarize(Freq = n())
