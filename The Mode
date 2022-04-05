@@ -1,0 +1,6 @@
+library(readr)
+houses  <-  read_tsv('AmesHousing_1.txt')
+
+scale_land  <-  'ordinal'
+scale_roof  <-  'nominal'
+kitchen_variable  <-  'discrete'
