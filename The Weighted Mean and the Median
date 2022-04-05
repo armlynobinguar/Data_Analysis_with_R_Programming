@@ -14,3 +14,14 @@ houses_per_year  <-  houses %>%
 mean_new  <-  mean(houses_per_year$MeanPrice)
 mean_original  <-  mean(houses$SalePrice)
 difference  <-  mean_original - mean_new
+
+houses_per_year  <- houses_per_year %>%
+    mutate(sum_per_year = MeanPrice * HousesSold)
+
+all_sums_together  <-  sum(houses_per_year$sum_per_year)
+total_n_houses  <-  sum(houses_per_year$HousesSold)
+weighted_mean  <-  all_sums_together / total_n_houses
+
+mean_original  <-  mean(houses$SalePrice)
+
+difference  <-  round(mean_original, digits = 10) - round(weighted_mean, digits = 10)
