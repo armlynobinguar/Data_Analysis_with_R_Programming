@@ -54,3 +54,20 @@ middle_indices  <-  c(length(rooms_sorted) / 2,
                  ) # 2930 is even so we need two indices.
 middle_values  <-  rooms_sorted[middle_indices]
 median  <-  mean(middle_values)
+
+library(ggplot2)
+
+ggplot(data = houses,
+    aes(x = "", y = `Lot Area`)) +
+    geom_boxplot() +
+    xlab("Lot Area") + 
+    ylab("")
+
+ggplot(data = houses,
+    aes(x = "", y = SalePrice)) +
+    geom_boxplot() +
+    xlab("Sale Price") + 
+    ylab("")
+
+lotarea_difference  <-  mean(houses$`Lot Area`) - median(houses$`Lot Area`)
+saleprice_difference  <-  mean(houses$`SalePrice`) - median(houses$`SalePrice`)
