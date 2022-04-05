@@ -35,3 +35,10 @@ computed_weighted_mean  <-  compute_weighted_mean(houses_per_year$MeanPrice, hou
 weighted_mean_r  <-  weighted.mean(houses_per_year$MeanPrice, houses_per_year$HousesSold)
 
 equal  <-  round(computed_weighted_mean, 10) == round(weighted_mean_r, 10)
+
+distribution1  <-  c(23, 24, 22, '20 years or lower,', 23, 42, 35)
+distribution2  <-  c(55, 38, 123, 40, 71)
+distribution3  <-  c(45, 22, 7, '5 books or lower', 32, 65, '100 books or more')
+median1  <-  23
+median2  <-  55
+median3  <-  32
