@@ -87,3 +87,19 @@ ggplot(data = df, aes(x = sample_sizes, y = sampling_errors)) +
     geom_vline(xintercept = 2930) + 
     labs(x = "Sample size", 
          y = "Sampling error")
+
+library(tibble)
+library(ggplot2)
+set.seed(1)
+mean_points <- replicate(n = 10000, 
+                         expr = mean(sample(houses$SalePrice, 
+                                            size = 100)))
+
+ggplot(data = tibble(mean_points), aes(x = mean_points)) +
+    geom_histogram(bins = 100,
+                   position = "identity", 
+                   alpha = 0.5) +
+    geom_vline(aes(xintercept = mean(houses$SalePrice))) +
+    xlab("Sample mean") + 
+    ylab("Frequency") +
+    xlim(0, 500000)
