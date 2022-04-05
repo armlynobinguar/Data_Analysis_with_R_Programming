@@ -51,3 +51,16 @@ houses  <-  read_tsv('AmesHousing_1.txt')
 one  <-  TRUE # every column that describes years is measured on an interval scale
 two  <-  FALSE # `SalePrice` is measured on a ratio scale
 three  <-  TRUE # The data set has less values than the initial one with 3970 rows which we don't know either whether it represents a population
+
+compute_mean <- function(distribution) {
+    N <- length(distribution)
+    sum_of_the_distribution = 0
+    for ( i in 1:N) {
+        sum_of_the_distribution <- sum_of_the_distribution + distribution[i]
+    }
+
+    sum_of_the_distribution / N
+}
+computed_mean  <-  compute_mean(houses$SalePrice)
+r_mean  <-  mean(houses$SalePrice)
+means_are_equal  <-  (computed_mean == r_mean)
