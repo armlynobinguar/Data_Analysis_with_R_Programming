@@ -71,3 +71,23 @@ ggplot(data = houses,
 
 lotarea_difference  <-  mean(houses$`Lot Area`) - median(houses$`Lot Area`)
 saleprice_difference  <-  mean(houses$`SalePrice`) - median(houses$`SalePrice`)
+
+mean  <-  mean(houses$`Overall Cond`)
+median  <-  median(houses$`Overall Cond`)
+
+ggplot(data = houses, aes(x = `Overall Cond`)) +
+    geom_histogram(bins = 9, 
+                   position = "identity", 
+                   alpha = 0.6, 
+                   fill='blue') + 
+    #geom_vline(xintercept = mean, color = 'red', size=1) +
+    #geom_vline(xintercept = median, color = 'green', size=1) +
+    xlab("Overall Cond") + 
+    ylab("Frequency")
+
+more_representative  <-  'mean' 
+
+#Extra comment:
+#The mean seems more representative and more informative because it captures the
+#fact that there are more houses rated above 5 than rated under 5. Because of this,
+#the mean is slightly shifted above 5.
