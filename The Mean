@@ -103,3 +103,21 @@ ggplot(data = tibble(mean_points), aes(x = mean_points)) +
     xlab("Sample mean") + 
     ylab("Frequency") +
     xlim(0, 500000)
+    
+population  <-  c(3, 7, 2)
+library(purrr)
+
+samples  <-  list(c(3, 7), 
+                  c(3, 2),
+                  c(7, 2), 
+                  c(7, 3),
+                  c(2, 3),
+                  c(2, 7))
+
+sample_means <- map_dbl(samples, function(x) mean(x))
+
+population_mean  <-  mean(population)
+
+mean_of_sample_means  <-  mean(sample_means)
+
+unbiased  <-  (population_mean == mean_of_sample_means)
