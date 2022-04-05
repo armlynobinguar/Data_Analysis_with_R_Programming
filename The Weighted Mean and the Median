@@ -42,3 +42,15 @@ distribution3  <-  c(45, 22, 7, '5 books or lower', 32, 65, '100 books or more')
 median1  <-  23
 median2  <-  55
 median3  <-  32
+
+# Sort the values
+rooms  <-  houses$`TotRms AbvGrd`
+rooms  <-  as.numeric(stringr::str_replace(rooms, '10 or more', '10'))
+rooms_sorted  <-  sort(rooms)
+
+# Find the median 
+middle_indices  <-  c(length(rooms_sorted) / 2,
+                      (length(rooms_sorted) / 2) + 1
+                 ) # 2930 is even so we need two indices.
+middle_values  <-  rooms_sorted[middle_indices]
+median  <-  mean(middle_values)
