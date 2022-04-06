@@ -11,3 +11,11 @@ sale_price_range <- houses %>%
 
 one  <-  FALSE
 two  <-  TRUE
+
+C  <-  c(1,1,1,1,1,1,1,1,1,21)
+average_distance <- function(vector) {
+    distances  <-  vector - mean(vector)
+    sum(distances) / length(distances)
+}
+
+avg_distance  <-  average_distance(C)
