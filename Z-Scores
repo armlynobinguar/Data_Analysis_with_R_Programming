@@ -195,3 +195,15 @@ houses <- houses %>%
 head(houses %>% select(z_1, z_2), 2)
 
 better  <-  'first'
+
+houses_merged <- bind_rows(houses_1,houses_2) %>%
+    mutate(z_1 = tidyr::replace_na(z_1,0)) %>%
+    mutate(z_2 = tidyr::replace_na(z_2,0)) %>%
+    mutate(z_merged = z_1 +  z_2)
+mean  <-  50
+st_dev  <-  10
+houses_merged <- houses_merged %>%
+    mutate(transformed = z_merged * st_dev + mean)
+                            
+mean_transformed  <-  mean(houses_merged$transformed)
+stdev_transformed  <-  standard_deviation(houses_merged$transformed)
