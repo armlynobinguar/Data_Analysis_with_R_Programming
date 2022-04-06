@@ -166,3 +166,31 @@ equal_stdevs  <-  computed_stdev == stdev_r
 computed_var  <-  variance_bessel_correction(sample_sales)
 var_r  <-  var(sample_sales)
 equal_vars  <-  computed_var == var_r
+
+population  <-  c(0, 3, 6)
+
+samples  <-  list(c(0,3), c(0,6),
+               c(3,0), c(3,6),
+               c(6,0), c(6,3)
+)
+
+variance <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sum(distances) / length(distances)
+}
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / length(distances) )
+}
+population_var  <-  variance(population)
+population_std  <-  standard_deviation(population)
+
+st_devs  <-  purrr::map_dbl(samples,sd)
+variances  <-  purrr::map_dbl(samples,var)
+
+mean_std  <-  mean(st_devs)
+mean_var  <-  mean(variances)
+
+equal_stdev  <-  population_std == mean_std
+equal_var  <-  population_var == mean_var
