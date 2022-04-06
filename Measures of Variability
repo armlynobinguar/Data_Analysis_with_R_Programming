@@ -33,6 +33,27 @@ mean_absolute_deviation <- function(vector) {
 
 mad  <-  mean_absolute_deviation(C)
 
+library(dplyr)
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / length(distances))
+}
+# Measure first the variability for each year
+houses_years_std <- houses %>%
+    group_by(`Yr Sold`) %>%
+    summarize(st_dev = standard_deviation(SalePrice)) %>%
+    arrange(st_dev)
+
+# Get years of max and min variability
+greatest_variability  <-  houses_years_std %>%
+  filter(st_dev == max(st_dev)) %>% 
+  pull(`Yr Sold`)
+
+lowest_variability  <-  houses_years_std %>%
+  filter(st_dev == min(st_dev)) %>% 
+  pull(`Yr Sold`)
+
 
 C  <-  c(1,1,1,1,1,1,1,1,1,21)
 
