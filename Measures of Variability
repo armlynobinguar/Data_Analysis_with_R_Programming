@@ -110,3 +110,38 @@ ggplot(data = std_points_tibble, aes(x = std_points)) +
     geom_vline(aes(xintercept = standard_deviation(houses$SalePrice))) +
     xlab("Sample standard deviation") + 
     ylab("Frequency")
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / length(distances))
+}
+
+library(ggplot2)
+set.seed(1)
+
+std_points  <-  replicate(n = 5000, expr = standard_deviation(sample(x = houses$SalePrice, size = 10)))
+
+#ggplot(data = tibble::tibble(std_points), aes(x = std_points)) +
+#    geom_histogram(bins = 10, position = "identity") +
+#    geom_vline(aes(xintercept = standard_deviation(houses$SalePrice))) +
+#    xlab("Sample standard deviation") + 
+#    ylab("Frequency")
+
+population_stdev  <-  standard_deviation(houses$SalePrice)
+standard_deviation_bessel_correction <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / (length(distances) - 1) ) #Only this line has to change
+}
+
+library(ggplot2)
+set.seed(1)
+
+std_points  <-  replicate(n = 5000, expr = standard_deviation_bessel_correction(sample(x = houses$SalePrice, size = 10)))
+
+std_points_tibble <- tibble::tibble(std_points)
+
+ggplot(data = std_points_tibble, aes(x = std_points)) +
+    geom_histogram(bins = 10, position = "identity") +
+    geom_vline(aes(xintercept = population_stdev)) +
+    xlab("Sample standard deviation") + 
+    ylab("Frequency")
