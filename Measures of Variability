@@ -46,3 +46,16 @@ mean_absolute_deviation <- function(vector) {
 }
 
 mad  <-  mean_absolute_deviation(C)
+
+C  <-  c(1,1,1,1,1,1,1,1,1,21)
+
+#mean_absolute_deviation <- function(vector) {
+#    distances  <-  abs(vector - mean(vector))
+#    sum(distances) / length(distances)
+#}
+variance <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sum(distances) / length(distances)
+}
+
+variance_C  <-  variance(C)
