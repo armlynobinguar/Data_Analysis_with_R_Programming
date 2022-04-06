@@ -80,3 +80,16 @@ variance <- function(vector) {
 }
 
 variance_C  <-  variance(C)
+
+set.seed(10)
+
+sample1  <-  sample(x = houses$`Year Built`, size = 50)
+sample2  <-  sample(x = houses$`Year Built`, size = 50)
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / length(distances))
+}
+bigger_spread  <-  'sample 2'
+st_dev1  <-  standard_deviation(sample1)
+st_dev2  <-  standard_deviation(sample2)
