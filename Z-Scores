@@ -138,3 +138,21 @@ houses %>%
 
 # Find the location with the z-score closest to 0
 best_investment  <-  'College Creek'
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / length(distances) )
+}
+
+library(dplyr)
+houses <- houses %>%
+    mutate(z_prices = (SalePrice - mean(SalePrice)) / standard_deviation(SalePrice))
+z_mean_price  <-  mean(houses$z_prices)
+z_stdev_price  <-  standard_deviation(houses$z_prices)
+
+# Transforming 'Lot Area'
+houses <- houses %>%
+    mutate(z_area = (`Lot Area` - mean(`Lot Area`)) / standard_deviation(`Lot Area`))
+
+z_mean_area  <-  mean(houses$z_area)
+z_stdev_area  <-  standard_deviation(houses$z_area)
