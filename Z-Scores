@@ -1,0 +1,42 @@
+library(readr)
+# Heads up that the following instruction can generate a column specification warnings, you can ignore that.
+# These warnings are related to that `readr` has misguidedly guessed the type of values in the column `Pool QC`. 
+# To avoid this warning we can manually specify the type of this column the `col_types` parameter.
+houses  <-  read_tsv('AmesHousing_1.txt', col_types = cols(`Pool QC` = col_character())) 
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / length(distances) )
+}
+
+st_dev  <-  standard_deviation(houses$SalePrice)
+mean  <-  mean(houses$SalePrice)
+
+library(ggplot2)
+#ggplot(data = houses,
+#    aes(x = SalePrice)) +
+#    geom_density(alpha = 0.1, 
+#                 color='blue', 
+#                 fill='blue') +
+#    geom_vline(aes(xintercept = mean, 
+#                   color = 'Mean'), 
+#               size = 1.2 ) +
+#    geom_vline(aes(xintercept = 220000, 
+#                   color = '220,000'), 
+#               size = 1.2 ) +
+#    geom_vline(aes(xintercept = mean+st_dev, 
+#                   color = 'Standard deviation'), 
+#               size = 1.2 ) +
+#    scale_y_continuous(labels = scales::comma) +
+#    scale_x_continuous(labels = scales::comma, 
+#                       lim = c(min(houses$SalePrice), 
+#                               max(houses$SalePrice))) +
+#    scale_colour_manual(values = c("Mean"="black", 
+#                                   "220,000"="red", 
+#                                   "Standard deviation"="orange"), 
+#                        name = "") +
+#    theme_bw() + 
+#    theme(legend.position='top') +
+#    xlab("Sale Price") + 
+#    ylab("Density")
+very_expensive  <-  FALSE
