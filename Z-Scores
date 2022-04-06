@@ -90,3 +90,23 @@ standard_deviation <- function(vector) {
 }
 distance  <-  220000 - mean(houses$SalePrice)
 st_devs_away  <-  distance / standard_deviation(houses$SalePrice)
+
+min_val  <-  min(houses$SalePrice)
+mean_val  <-  mean(houses$SalePrice)
+max_val  <-  max(houses$SalePrice) 
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / (length(distances) -1) )
+}
+z_score <- function(value, vector, bessel = FALSE) {
+    mean  <-  mean(vector)
+    
+    st_dev <- ifelse(!bessel, sd(vector), standard_deviation(vector)) 
+    
+    (value - mean) / st_dev
+}
+
+min_z  <-  z_score(min_val, houses$SalePrice)
+mean_z  <-  z_score(mean_val, houses$SalePrice)
+max_z  <-  z_score(max_val, houses$SalePrice)
