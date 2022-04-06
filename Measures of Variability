@@ -145,3 +145,24 @@ ggplot(data = std_points_tibble, aes(x = std_points)) +
     geom_vline(aes(xintercept = population_stdev)) +
     xlab("Sample standard deviation") + 
     ylab("Frequency")
+    
+set.seed(1)
+
+sample_sales  <-  sample(x=houses$SalePrice, size=100)
+
+variance_bessel_correction <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sum(distances) / (length(distances) - 1)
+}
+
+standard_deviation_bessel_correction <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / (length(distances)-1) )
+}
+computed_stdev  <-  standard_deviation_bessel_correction(sample_sales)
+stdev_r  <-  sd(sample_sales)
+equal_stdevs  <-  computed_stdev == stdev_r
+
+computed_var  <-  variance_bessel_correction(sample_sales)
+var_r  <-  var(sample_sales)
+equal_vars  <-  computed_var == var_r
