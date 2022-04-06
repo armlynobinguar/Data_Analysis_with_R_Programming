@@ -171,3 +171,27 @@ standardized_pop  <-  (population - mean_pop) / stdev_pop
 
 mean_z  <-  mean(standardized_pop)
 stdev_z  <-  standard_deviation(standardized_pop)
+
+standard_deviation <- function(vector) {
+  distances  <-  (vector - mean(vector))**2 
+  sqrt(sum(distances) / length(distances) )
+}
+
+houses <- houses %>%
+  mutate(index_1 = SalePrice/ 100000 + 37) %>%
+  mutate(index_1 = replace(index_1,  row_number() %% 2 != 0, NA_real_) ) %>%
+  mutate(index_2 = SalePrice/ 90000 - 2.8) %>%
+  mutate(index_2 = replace(index_2,  row_number() %% 2 == 0, NA_real_) )
+
+mean_index_1  <-  mean(houses$index_1, na.rm = T)
+mean_index_2  <-  mean(houses$index_2, na.rm = T)
+
+sd_index_1  <-  standard_deviation(na.omit(houses$index_1))
+sd_index_2  <-  standard_deviation(na.omit(houses$index_2))
+houses <- houses %>%
+  mutate(z_1 = (index_1 - mean_index_1) / sd_index_1 ) %>%
+  mutate(z_2 = (index_2 - mean_index_2) / sd_index_2 ) 
+
+head(houses %>% select(z_1, z_2), 2)
+
+better  <-  'first'
