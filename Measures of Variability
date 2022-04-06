@@ -93,3 +93,20 @@ standard_deviation <- function(vector) {
 bigger_spread  <-  'sample 2'
 st_dev1  <-  standard_deviation(sample1)
 st_dev2  <-  standard_deviation(sample2)
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 #we only need to compute the squared distances here
+    sqrt(sum(distances) / length(distances))
+}
+
+library(ggplot2)
+set.seed(1)
+std_points  <-  replicate(n = 5000, expr = standard_deviation(sample(x = houses$SalePrice, size = 10)))
+
+std_points_tibble <- tibble::tibble(std_points)
+
+ggplot(data = std_points_tibble, aes(x = std_points)) +
+    geom_histogram(bins = 10, position = "identity") +
+    geom_vline(aes(xintercept = standard_deviation(houses$SalePrice))) +
+    xlab("Sample standard deviation") + 
+    ylab("Frequency")
