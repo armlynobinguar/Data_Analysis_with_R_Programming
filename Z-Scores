@@ -156,3 +156,18 @@ houses <- houses %>%
 
 z_mean_area  <-  mean(houses$z_area)
 z_stdev_area  <-  standard_deviation(houses$z_area)
+
+
+population  <-  c(0, 8, 0, 8)
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / length(distances) )
+}
+mean_pop  <-  mean(population)
+stdev_pop  <-  standard_deviation(population)
+
+standardized_pop  <-  (population - mean_pop) / stdev_pop
+
+mean_z  <-  mean(standardized_pop)
+stdev_z  <-  standard_deviation(standardized_pop)
