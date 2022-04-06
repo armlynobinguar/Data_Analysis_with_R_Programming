@@ -1,0 +1,13 @@
+library(readr)
+# Heads up that the following instruction can generate a column specification warnings, you can ignore that.
+# These warnings are related to that `readr` has misguidedly guessed the type of values in the column `Pool QC`. 
+# To avoid this warning we can manually specify the type of this column the `col_types` parameter.
+houses  <-  read_tsv('AmesHousing_1.txt', col_types = cols(`Pool QC` = col_character()))
+library(dplyr)
+
+sale_price_range <- houses %>%
+    group_by(`Yr Sold`) %>%
+    summarize(range_by_year = max(SalePrice) - min(SalePrice))
+
+one  <-  FALSE
+two  <-  TRUE
