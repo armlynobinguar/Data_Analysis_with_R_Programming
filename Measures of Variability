@@ -19,3 +19,16 @@ average_distance <- function(vector) {
 }
 
 avg_distance  <-  average_distance(C)
+
+C  <-  c(1,1,1,1,1,1,1,1,1,21)
+
+#average_distance <- function(vector) {
+#    distances  <-  vector - mean(vector)
+#    sum(distances) / length(distances)
+#}
+mean_absolute_deviation <- function(vector) {
+    distances  <-  abs(vector - mean(vector)) #we only add abs function here
+    sum(distances) / length(distances)
+}
+
+mad  <-  mean_absolute_deviation(C)
