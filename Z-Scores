@@ -110,3 +110,31 @@ z_score <- function(value, vector, bessel = FALSE) {
 min_z  <-  z_score(min_val, houses$SalePrice)
 mean_z  <-  z_score(mean_val, houses$SalePrice)
 max_z  <-  z_score(max_val, houses$SalePrice)
+
+standard_deviation <- function(vector) {
+    distances  <-  (vector - mean(vector))**2 
+    sqrt(sum(distances) / length(distances) )
+}
+
+z_score <- function(value, vector, bessel = FALSE) {
+    mean  <-  mean(vector)
+    
+    st_dev <- ifelse(!bessel, sd(vector), standard_deviation(vector)) 
+    
+    (value - mean) / st_dev
+}
+
+target_neighborhoods <- c('NAmes', 'CollgCr', 'OldTown', 'Edwards', 'Somerst')
+# Filter only the interesting locations from the dataset
+# Group by neighborhood and find the z-score for 200000 for every location
+# Sort the result by zcore
+library(dplyr)
+houses %>%
+    filter(Neighborhood %in% target_neighborhoods) %>%
+    group_by(Neighborhood) %>%
+    summarise(zscore = abs(z_score(200000, SalePrice))) %>%
+    ungroup() %>%
+    arrange(zscore)
+
+# Find the location with the z-score closest to 0
+best_investment  <-  'College Creek'
