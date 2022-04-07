@@ -18,3 +18,9 @@ p_heart_or_diamonds <- 13/52 + 13/52
 p_face_card <- 3/52 + 3/52 + 3/52 + 3/52
 
 p_f_or_t <- 0.26 + 0.11 - 0.03
+
+
+p_a <- 12/100
+p_b <- 17/100
+p_a_and_b <- 3/100
+p_a_or_b <- p_a + p_b - p_a_and_b
