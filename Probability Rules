@@ -1,0 +1,1 @@
+coin_toss_omega <- length(c('HH', 'TT', 'HT', 'TH'))
