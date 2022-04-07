@@ -1,1 +1,6 @@
 coin_toss_omega <- length(c('HH', 'TT', 'HT', 'TH'))
+
+p_c <- 3/6
+p_d <- 3/6
+p_c_or_d <- 4/6
+p_c_and_d <- 2/6
