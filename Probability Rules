@@ -9,3 +9,7 @@ operation_1 <- FALSE
 operation_2 <- TRUE
 operation_3 <- FALSE
 operation_4 <- TRUE
+
+mutual_exclusive_1 <- TRUE
+mutual_exclusive_2 <- TRUE
+mutual_exclusive_3 <- FALSE
