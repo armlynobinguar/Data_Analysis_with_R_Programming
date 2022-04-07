@@ -16,3 +16,5 @@ mutual_exclusive_3 <- FALSE
 
 p_heart_or_diamonds <- 13/52 + 13/52
 p_face_card <- 3/52 + 3/52 + 3/52 + 3/52
+
+p_f_or_t <- 0.26 + 0.11 - 0.03
