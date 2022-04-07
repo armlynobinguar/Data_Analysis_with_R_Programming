@@ -4,3 +4,8 @@ p_c <- 3/6
 p_d <- 3/6
 p_c_or_d <- 4/6
 p_c_and_d <- 2/6
+
+operation_1 <- FALSE
+operation_2 <- TRUE
+operation_3 <- FALSE
+operation_4 <- TRUE
