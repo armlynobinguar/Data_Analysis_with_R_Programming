@@ -10,3 +10,6 @@ at_least_one_skill <- 0.2 + 0.3 + 0.4 - (0.2 * 0.3) - (0.2 * 0.4) - (0.3 * 0.4) 
 sql_and_ml_me <- 0
 ml_or_viz_me <- 0.3 + 0.4
 at_least_one_skill_me <- 0.2 + 0.3 + 0.4
+
+p_complement_even <- 1/2
+p_complement_ace <- 48/52
