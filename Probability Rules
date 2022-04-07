@@ -13,3 +13,6 @@ operation_4 <- TRUE
 mutual_exclusive_1 <- TRUE
 mutual_exclusive_2 <- TRUE
 mutual_exclusive_3 <- FALSE
+
+p_heart_or_diamonds <- 13/52 + 13/52
+p_face_card <- 3/52 + 3/52 + 3/52 + 3/52
