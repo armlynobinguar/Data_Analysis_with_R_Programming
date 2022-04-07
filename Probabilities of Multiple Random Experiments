@@ -6,3 +6,7 @@ p_1_even <- 1/6 * 3/6
 sql_and_ml <- 0.2 * 0.3
 ml_or_viz <- 0.3 + 0.4 - (0.3 * 0.4)
 at_least_one_skill <- 0.2 + 0.3 + 0.4 - (0.2 * 0.3) - (0.2 * 0.4) - (0.3 * 0.4) + (0.2 * 0.3 * 0.4)
+
+sql_and_ml_me <- 0
+ml_or_viz_me <- 0.3 + 0.4
+at_least_one_skill_me <- 0.2 + 0.3 + 0.4
