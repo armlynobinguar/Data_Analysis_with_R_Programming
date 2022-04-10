@@ -3,3 +3,12 @@ response  <-  GET("http://dataquestio.github.io/web-scraping-pages/simple.html")
 content  <- content(response, as = "parsed")
 
 print(content)
+
+library(rvest)
+new_content <- read_html("http://dataquestio.github.io/web-scraping-pages/simple.html")
+
+# Type your answer below
+library(dplyr)
+title_text <- new_content %>% 
+    html_nodes("title") %>%
+    html_text()
