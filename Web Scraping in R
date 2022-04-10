@@ -33,3 +33,10 @@ first_paragraph_text <- content_3 %>%
 second_paragraph_text <- content_3 %>% 
     html_nodes("#second") %>%
     html_text()
+
+content_4 <- read_html("http://dataquestio.github.io/web-scraping-pages/simple_classes.html")
+
+# Type your answer below
+outer_paragraph_text <- content_4 %>% 
+    html_nodes(".outer-text") %>%
+    html_text()
