@@ -12,3 +12,13 @@ library(dplyr)
 title_text <- new_content %>% 
     html_nodes("title") %>%
     html_text()
+
+content_2 <- read_html("http://dataquestio.github.io/web-scraping-pages/simple_classes.html")
+
+# Type your answer below
+b_text <- content_2 %>% 
+    html_nodes("b") %>%
+    html_text()
+
+
+first_outer_paragraph <- b_text[1]
