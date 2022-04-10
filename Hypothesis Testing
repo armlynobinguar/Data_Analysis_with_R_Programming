@@ -7,3 +7,8 @@ library(readr)
 data <- read.csv("weight_loss.csv")
 var_group_a <- var(data$A)
 var_group_b <- var(data$B)
+
+library(readr)
+data <- read.csv("weight_loss.csv")
+diff_mean <- mean(data$A) - mean(data$B)
+diff_var <- (var(data$A)/length(data$A)) + (var(data$B)/length(data$B))
