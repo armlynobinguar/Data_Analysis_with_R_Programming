@@ -19,3 +19,6 @@ p_crack_4 <- 1 / total_outcomes_4_pin
 
 total_outcomes_6_pin <- 10^6 # 10 multiplied by itself 6 times
 p_crack_6 <- 1/total_outcomes_6_pin
+
+size_num_4 <- 10 * 9 * 8 * 7
+size_num_6 <- 10 * 9 * 8 * 7 * 6 * 5
