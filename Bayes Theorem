@@ -1,3 +1,11 @@
 statement_1 <- FALSE
 statement_2 <- TRUE
 statement_3 <- TRUE
+
+p_spam <- 0.2388
+p_secret_given_spam <- 0.4802
+p_secret_given_non_spam <- 0.1284
+p_non_spam <- 1 - p_spam
+p_spam_and_secret <- p_spam * p_secret_given_spam
+p_non_spam_and_secret <- p_non_spam * p_secret_given_non_spam
+p_secret <- p_spam_and_secret + p_non_spam_and_secret
