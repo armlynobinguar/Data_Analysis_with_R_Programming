@@ -68,3 +68,18 @@ p_non_spam_given_message <- (p_non_spam * p_secret_given_non_spam *
                             p_the_given_non_spam * p_money_given_non_spam)
 
 classification <- 'spam'
+
+p_spam <- 2/4
+p_secret_given_spam <- (4 + 1) / (7 + 9)
+p_the_given_spam <- (0 + 1) / (7 + 9)
+p_money_given_spam <- (2 + 1) / (7 + 9)
+p_spam_given_message <- (p_spam * p_secret_given_spam *
+                        p_the_given_spam * p_money_given_spam)
+p_non_spam <- 2/4
+p_secret_given_non_spam <- (2 + 1) / (9 + 9)
+p_the_given_non_spam <- (1 + 1) / (9 + 9)
+p_money_given_non_spam <- (0 + 1) / (9 + 9)
+p_non_spam_given_message <- (p_non_spam * p_secret_given_non_spam *
+                            p_the_given_non_spam * p_money_given_non_spam)
+
+classification <- 'spam'
