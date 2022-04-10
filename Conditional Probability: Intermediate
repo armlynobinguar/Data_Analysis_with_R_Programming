@@ -16,3 +16,8 @@ p_m_given_non_l <- 483/1910
 p_non_l_given_m <- 483/515
 p_m_and_non_l <- 483/2000
 p_non_l_and_m <- 483/2000 #P(M and non-L) is the same as P(non-L and M); see the exercise hint
+
+p_m_given_non_l <- 483/1910
+p_non_l_given_m <- 483/515
+p_m_and_non_l <- 483/2000
+p_non_l_and_m <- 483/2000 #P(M and non-L) is the same as P(non-L and M); see the exercise hint
