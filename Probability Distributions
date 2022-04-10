@@ -1,0 +1,4 @@
+are_uniforms <- FALSE
+most_probable_A <- 1
+total_probability_B <- 0.2 + 0.2 + 0.2 + 0.2 + 0.3
+is_B_valid <- FALSE
