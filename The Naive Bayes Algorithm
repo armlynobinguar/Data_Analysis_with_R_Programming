@@ -16,3 +16,9 @@ p_spam_given_new_message <- p_spam * p_new_message_given_spam
 p_non_spam_given_new_message <- p_non_spam * p_new_message_given_non_spam
 
 classification <- 'spam'
+
+p_spam_given_secret <- 8/21
+p_non_spam <- 1/3
+p_secret_given_non_spam <- 1/4
+p_non_spam_given_secret <- p_non_spam * p_secret_given_non_spam
+classification <- 'spam'
