@@ -46,3 +46,20 @@ permutation <- function(n, k) {
 
 perm_3_52 <- permutation(52,3)
 perm_4_20 <- permutation(20, 4)
+
+factorial <- function(n) {
+    final_product <- 1 
+    for (i in 1:n) {
+        final_product <- final_product * i
+    }
+    return(final_product)
+}
+
+permutation <- function(n, k) {
+    return(factorial(n) / factorial(n - k))
+}
+c <- permutation(52, 5) / factorial(5)
+p_aces_7 <- 1/c
+
+c_lottery <- permutation(49,6) / factorial(6)
+p_big_prize <- 1/c_lottery
