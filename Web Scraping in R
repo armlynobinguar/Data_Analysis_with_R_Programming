@@ -50,3 +50,13 @@ super_bowl_df <- content_5 %>%
     html_table()
 
 super_bowl_df
+
+content_6 <- read_html("http://dataquestio.github.io/web-scraping-pages/ids_and_classes.html")
+
+# Type your answer below
+library(dplyr)
+p_class_values <- content_6 %>% 
+    html_nodes("p") %>%
+    html_attr("class")
+
+p_class_values
