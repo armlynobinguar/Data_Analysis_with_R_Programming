@@ -6,3 +6,12 @@ content_1 <- read_html("http://dataquestio.github.io/web-scraping-pages/simple_c
 b_text <- content_1 %>% 
     html_nodes("b") %>%
     html_text()
+content_2 <- read_html("http://dataquestio.github.io/web-scraping-pages/ids_and_classes.html")
+
+first_outer_text <- content_2 %>% 
+    html_nodes("#second") %>%
+    html_text()
+
+first_items_text <- content_2 %>% 
+    html_nodes(".first-item") %>%
+    html_text()
