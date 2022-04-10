@@ -68,3 +68,14 @@ ggplot(data = world_population_df_1950_2019,
   geom_point(size = 2) +
   theme_bw() +
   theme() +  ylab("Yearly Change")
+  
+  url_pattern <- "(?i)http[s]?://(?:[a-z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-f][0-9a-f]))+\\.jpg"
+
+# Type your answer below
+hot_100_styledata <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/The%20Hot%20100%20Chart%20_%20Billboard.html", 
+                             selector = ".chart-element__image", 
+                             output = "style")
+
+hot_100_styledata_top5 <- head(hot_100_styledata, 5)
+
+hot_5_img_url <- stringr::str_extract(hot_100_styledata_top5, url_pattern)
