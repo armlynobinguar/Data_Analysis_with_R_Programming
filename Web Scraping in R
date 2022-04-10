@@ -40,3 +40,13 @@ content_4 <- read_html("http://dataquestio.github.io/web-scraping-pages/simple_c
 outer_paragraph_text <- content_4 %>% 
     html_nodes(".outer-text") %>%
     html_text()
+
+content_5 <- read_html("http://dataquestio.github.io/web-scraping-pages/2014_super_bowl.html")
+
+# Type your answer below
+library(dplyr)
+super_bowl_df <- content_5 %>% 
+    html_node("table") %>%
+    html_table()
+
+super_bowl_df
