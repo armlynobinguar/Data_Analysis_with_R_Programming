@@ -63,3 +63,19 @@ p_aces_7 <- 1/c
 
 c_lottery <- permutation(49,6) / factorial(6)
 p_big_prize <- 1/c_lottery
+
+factorial <- function(n) {
+    final_product <- 1 
+    for (i in 1:n) {
+        final_product <- final_product * i
+    }
+    return(final_product)
+}
+combination <- function(n, k) {
+    return(factorial(n)/(factorial(n - k) * factorial(k)))
+}
+
+c_18 <- combination(34, 18)
+
+p_Y <- 1/c_18
+p_non_Y <- 1 - p_Y
