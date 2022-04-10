@@ -32,3 +32,17 @@ factorial <- function(n) {
 }
 
 letter_permutations <- factorial(6) # because there are 6 letters
+
+factorial <- function(n) {
+    final_product <- 1
+    for (i in 1:n) {
+        final_product = final_product * i
+    }
+    return(final_product)
+}
+permutation <- function(n, k) {
+    return(factorial(n) / factorial(n - k))
+}
+
+perm_3_52 <- permutation(52,3)
+perm_4_20 <- permutation(20, 4)
