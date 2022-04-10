@@ -1,0 +1,4 @@
+library(readr)
+data <- read.csv("weight_loss.csv")
+mean_group_a <- mean(data$A)
+mean_group_b <- mean(data$B)
