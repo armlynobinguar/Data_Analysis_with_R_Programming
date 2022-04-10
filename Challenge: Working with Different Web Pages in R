@@ -33,3 +33,8 @@ scraper <- function(url, selector, output = "text", all_nodes = TRUE) {
 
 scraper(url = "http://dataquestio.github.io/web-scraping-pages/2014_super_bowl.html", 
         selector = "table tr:nth-child(3) td")
+
+
+belgium_temperatures_text <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/Brussels_Belgium_Weather_AccuWeather.html",
+                                     selector = ".half-day-card-header .temperature")
+belgium_temperatures <- readr::parse_number(belgium_temperatures_text)
