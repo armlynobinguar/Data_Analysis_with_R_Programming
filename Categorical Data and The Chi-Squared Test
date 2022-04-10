@@ -7,3 +7,6 @@ squared_diff_sum <- female_diff_sq + male_diff_sq
 
 pvalue <- 1 - pchisq(3728, 1)
 reject_null <- TRUE
+
+pvalue <- 1 - pchisq(1.8, 1)
+reject_null <- FALSE
