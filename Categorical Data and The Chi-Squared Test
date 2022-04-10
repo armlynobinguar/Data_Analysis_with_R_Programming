@@ -20,3 +20,4 @@ for (i in 1:length(observed)) {
     O <- observed[i]
     race_chisq <- race_chisq + ((O - E)^2/E)
 }
+pvalue <- 1 - pchisq(785, 4)
