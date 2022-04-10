@@ -22,3 +22,14 @@ b_text <- content_2 %>%
 
 
 first_outer_paragraph <- b_text[1]
+
+content_3 <- read_html("http://dataquestio.github.io/web-scraping-pages/simple_ids.html")
+
+# Type your answer below
+first_paragraph_text <- content_3 %>% 
+    html_nodes("#first") %>%
+    html_text()
+
+second_paragraph_text <- content_3 %>% 
+    html_nodes("#second") %>%
+    html_text()
