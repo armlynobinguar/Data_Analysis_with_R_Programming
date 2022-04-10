@@ -43,3 +43,11 @@ wiki_infobox <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/E
                         selector = ".infobox")
 earth_mean_radius_matches <- stringr::str_match(wiki_infobox, "Mean radius(\\d+\\.\\d+)\\s*km")
 earth_mean_radius <- as.numeric(earth_mean_radius_matches[,2])
+
+accepted_message <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/WebSraping-ethics-SE.html", 
+                               selector = ".accepted-answer .s-prose", 
+                               all_nodes = F)
+
+accepted_message_author <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/WebSraping-ethics-SE.html", 
+                                      selector = ".accepted-answer .user-details a", 
+                                      all_nodes = F)
