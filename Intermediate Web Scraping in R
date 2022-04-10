@@ -35,3 +35,13 @@ table_df <- content_3 %>%
     html_table()
 
 nwe_vector <- table_df$NWE
+
+content_hot_100 <- read_html("https://www.billboard.com/charts/hot-100/2020-01-04")
+
+# Type your answer below
+hot_100_top_10_songs <- content_hot_100 %>% 
+    html_nodes(".chart-element__information .color--primary") %>%
+    html_text() %>%
+    head(10)
+
+#hot_100_top_10_songs
