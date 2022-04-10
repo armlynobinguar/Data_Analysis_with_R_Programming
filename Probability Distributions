@@ -2,3 +2,8 @@ are_uniforms <- FALSE
 most_probable_A <- 1
 total_probability_B <- 0.2 + 0.2 + 0.2 + 0.2 + 0.3
 is_B_valid <- FALSE
+
+prob_2 <- 1/36
+prob_4 <- 3/36
+prob_7 <- 6/36
+prob_10 <- prob_4
