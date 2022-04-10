@@ -1,2 +1,6 @@
 female_diff <- (10771 - 16280.5) / 16280.5
 male_diff <- (21790 - 16280.5) / 16280.5
+
+female_diff_sq <- (10771 - 16280.5)^2 / 16280.5
+male_diff_sq <- (21790 - 16280.5)^2 / 16280.5
+squared_diff_sum <- female_diff_sq + male_diff_sq
