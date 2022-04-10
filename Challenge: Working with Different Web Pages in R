@@ -51,3 +51,20 @@ accepted_message <- scraper(url = "http://dataquestio.github.io/web-scraping-pag
 accepted_message_author <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/WebSraping-ethics-SE.html", 
                                       selector = ".accepted-answer .user-details a", 
                                       all_nodes = F)
+                                      
+    world_population_df <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/Worldometer-Population.html", 
+                               selector = "table", 
+                               output = "table", 
+                               all_nodes = F)
+
+world_population_df_1950_2019 <- world_population_df %>% 
+  mutate(YearlyChange = readr::parse_number(YearlyChange) ) %>%
+  filter(Year >= 1950 & Year < 2020)
+
+library(ggplot2)
+ggplot(data = world_population_df_1950_2019,
+       aes(x = Year, y = YearlyChange, group = 1)) + 
+  geom_line() + 
+  geom_point(size = 2) +
+  theme_bw() +
+  theme() +  ylab("Yearly Change")
