@@ -29,3 +29,9 @@ total_yards <- content_3 %>%
     html_text()
 
 seahawks_total_yards_count <- total_yards[2]
+
+table_df <- content_3 %>% 
+    html_node("table") %>%
+    html_table()
+
+nwe_vector <- table_df$NWE
