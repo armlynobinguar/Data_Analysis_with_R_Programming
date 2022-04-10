@@ -1,0 +1,9 @@
+p_spam <- 0.5
+p_non_spam <- 0.5
+p_new_message <- 0.5417
+p_new_message_given_spam <- 0.75
+p_new_message_given_non_spam <- 0.3334
+p_spam_given_new_message <- (p_spam * p_new_message_given_spam) / p_new_message
+p_non_spam_given_new_message <- (p_non_spam * p_new_message_given_non_spam) / p_new_message
+
+classification <- "spam" # p_spam_given_new_message > p_non_spam_given_new_message
