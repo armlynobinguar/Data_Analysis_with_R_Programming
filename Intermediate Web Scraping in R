@@ -15,3 +15,17 @@ first_outer_text <- content_2 %>%
 first_items_text <- content_2 %>% 
     html_nodes(".first-item") %>%
     html_text()
+
+content_3 <- read_html("http://dataquestio.github.io/web-scraping-pages/2014_super_bowl.html")
+
+total_plays <- content_3 %>% 
+    html_nodes("#total-plays td") %>%
+    html_text()
+
+patriots_total_plays_count <- total_plays[3]
+
+total_yards <- content_3 %>% 
+    html_nodes("#total-yards td") %>%
+    html_text()
+
+seahawks_total_yards_count <- total_yards[2]
