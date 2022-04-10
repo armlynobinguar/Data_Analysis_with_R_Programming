@@ -16,3 +16,5 @@ for (i in 1:length(observed)) {
 r <- 2
 c <- 2
 df <- (r - 1) * (c - 1)
+pvalue <- 1 - pchisq(1517, 1)
+reject_null <- TRUE
