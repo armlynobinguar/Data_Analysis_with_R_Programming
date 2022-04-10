@@ -24,3 +24,8 @@ have HIV is 20%. This means that for every 10,000 healthy
 patients tested, only about 2000 will get a correct diagnosis, while the
 other 8000 will not. This rate is unacceptable, and it would be dangerous
 to have it used in hospitals."
+
+p_premium_given_chrome <- 158/2762
+p_basic_given_safari <- 274/1288
+p_free_given_firefox <- 2103/2285
+more_likely_premium <- 'Safari' # because P(Premium | Safari) > P(Premium | Chrome)
