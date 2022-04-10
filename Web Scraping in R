@@ -1,0 +1,5 @@
+response  <-  GET("http://dataquestio.github.io/web-scraping-pages/simple.html")
+
+content  <- content(response, as = "parsed")
+
+print(content)
