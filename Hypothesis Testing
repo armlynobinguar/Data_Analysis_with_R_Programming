@@ -12,3 +12,6 @@ library(readr)
 data <- read.csv("weight_loss.csv")
 diff_mean <- mean(data$A) - mean(data$B)
 diff_var <- (var(data$A)/length(data$A)) + (var(data$B)/length(data$B))
+
+reject_null_stat_one <- TRUE
+reject_null_stat_two <- FALSE
