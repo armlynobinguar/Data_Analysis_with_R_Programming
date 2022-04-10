@@ -18,3 +18,9 @@ c <- 2
 df <- (r - 1) * (c - 1)
 pvalue <- 1 - pchisq(1517, 1)
 reject_null <- TRUE
+
+library(readr)
+income <- read.csv("income.csv")
+race_education_table <- table(income$race, income$education)
+chisq.test(race_education_table)
+reject_null <- TRUE
