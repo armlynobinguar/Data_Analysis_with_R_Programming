@@ -38,3 +38,8 @@ scraper(url = "http://dataquestio.github.io/web-scraping-pages/2014_super_bowl.h
 belgium_temperatures_text <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/Brussels_Belgium_Weather_AccuWeather.html",
                                      selector = ".half-day-card-header .temperature")
 belgium_temperatures <- readr::parse_number(belgium_temperatures_text)
+
+wiki_infobox <- scraper(url = "http://dataquestio.github.io/web-scraping-pages/Earth-Wiki.html", 
+                        selector = ".infobox")
+earth_mean_radius_matches <- stringr::str_match(wiki_infobox, "Mean radius(\\d+\\.\\d+)\\s*km")
+earth_mean_radius <- as.numeric(earth_mean_radius_matches[,2])
