@@ -57,3 +57,36 @@ str(wb_poverty_level)
 
 library(ggplot2)
 ggplot(data = wb_poverty_level, aes(x = date, y = value, group = 1)) + geom_line() + ylab("Real agricultural GDP per capita growth rate (%)")
+
+trefle_api_json_get_df <- function(endpoint, queries = list()) {
+  
+  # Preparing the URL 
+  url <- modify_url("https://trefle.io", path = endpoint)
+  
+  # API requests
+  response <- GET(url, query = queries)
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+    
+  # Converting content into Dataframe
+  dataframe <- jsonlite::fromJSON(json_text)
+    
+  # Return the dataframe  
+  dataframe$data$common_name
+    
+}
+
+top_20_plants_df <- trefle_api_json_get_df("api/v1/plants?order[year]=asc", list(token = your_key))
+
+#top_20_plants_df
