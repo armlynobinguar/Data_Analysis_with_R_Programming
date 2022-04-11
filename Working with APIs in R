@@ -1,2 +1,13 @@
 wb_topic <- wb_api_json_get_df("v2/topic?format=json")
 #Print wb_topic to see the 21 topics available in the world bank API
+
+wb_api_json_get_df <- function(endpoint) {
+  
+  # Preparing the URL 
+  url <- modify_url("http://api.worldbank.org", path = endpoint)
+  
+  # Returning the URL
+  url
+}
+
+wb_country_url <- wb_api_json_get_df("v2/country")
