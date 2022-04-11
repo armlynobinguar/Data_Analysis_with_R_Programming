@@ -1,1 +1,60 @@
 wb_indicator_df <- wb_api_json_get_df("v2/indicator?format=json")
+
+wb_api_json_get_df <- function(endpoint) { # TODO 1: Modify to add the optional parameter queries
+  
+  # Preparing the URL 
+  url <- modify_url("http://api.worldbank.org", path = endpoint)
+  
+  # API requests
+  response <- GET(url) # TODO 2: Modify to set the query parameter to queries
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+
+  # Converting content into Dataframe
+  dataframe <- jsonlite::fromJSON(json_text)
+    
+  # Return the dataframe  
+  dataframe[[2]]
+}
+
+# Type the answer to the second instruction below
+wb_api_json_get_df <- function(endpoint, queries = list()) {
+  
+  # Preparing the URL 
+  url <- modify_url("http://api.worldbank.org", path = endpoint)
+  
+  # API requests
+  response <- GET(url, query = queries)
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+
+  # Converting content into Dataframe
+  dataframe <- jsonlite::fromJSON(json_text)
+    
+  # Return the dataframe  
+  dataframe[[2]]
+}
+
+wb_indicator_df_with_param <- wb_api_json_get_df("v2/indicator", list(format="json"))
