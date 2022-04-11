@@ -90,3 +90,51 @@ trefle_api_json_get_df <- function(endpoint, queries = list()) {
 top_20_plants_df <- trefle_api_json_get_df("api/v1/plants?order[year]=asc", list(token = your_key))
 
 #top_20_plants_df
+
+climate_api_json_get_df <- function(endpoint, queries = list()) {
+  
+  # Preparing the URL 
+  url <- modify_url("http://climatedataapi.worldbank.org", path = endpoint)
+  
+  # API requests
+  response <- GET(url, query = queries)
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+    
+  # Converting content into Dataframe
+  dataframe <- jsonlite::fromJSON(json_text)
+    
+  # Return the dataframe  
+  dataframe
+}
+
+climate_nigeria_2039_1 <- climate_api_json_get_df("climateweb/rest/v1/country/manom/bccr_bcm2_0/a2/tas/2020/2039/NGA")
+climate_nigeria_2039_2 <- climate_api_json_get_df("climateweb/rest/v1/country/manom/cccma_cgcm3_1/a2/tas/2020/2039/NGA")
+
+str(climate_nigeria_2039_1)
+str(climate_nigeria_2039_2)
+
+gcm <- c(rep("bccr_bcm2_0", 12), rep("cccma_cgcm3_1", 12))
+month <- rep(month.abb, 2)
+value <- c(climate_nigeria_2039_1$monthVals[[1]], 
+           climate_nigeria_2039_2$monthVals[[1]])
+
+df <- tibble::tibble("gcm" = gcm, "month" = month, "value" = value)
+
+df
+
+library(ggplot2)
+
+ggplot(data = df,
+      aes(x = factor(month, levels = month.abb), y = value, group = gcm, color = gcm)) + geom_line() + ylab("Average monthly change of Temperature (anomaly)") + xlab("Month")
