@@ -16,3 +16,35 @@ status
 
 the_job <- httr::content(response)
 the_job
+
+meetup_api_json_get_df <- function(endpoint, queries = list()) {
+  
+  # Preparing the URL 
+  url <- modify_url("https://api.meetup.com", path = endpoint)
+  
+  # API requests
+  response <- GET(url, query = queries)
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+    
+  # Converting content into Dataframe
+  dataframe <- jsonlite::fromJSON(json_text)
+    
+  # Return the dataframe  
+  dataframe
+}
+
+data_analytics_meetups <- meetup_api_json_get_df("find/topics", list(query = "data analytics",
+                                                                     only = "id,name,description"))
+data_analytics_meetups
