@@ -48,3 +48,12 @@ meetup_api_json_get_df <- function(endpoint, queries = list()) {
 data_analytics_meetups <- meetup_api_json_get_df("find/topics", list(query = "data analytics",
                                                                      only = "id,name,description"))
 data_analytics_meetups
+
+# We use the existing `wb_api_json_get_df()` function as is.
+
+wb_poverty_level <- wb_api_json_get_df("v2/country/afr/indicator/NV.AGR.PCAP.KD.ZG", list(format = "json", 
+                                                                                 date="1989:2000"))
+str(wb_poverty_level)
+
+library(ggplot2)
+ggplot(data = wb_poverty_level, aes(x = date, y = value, group = 1)) + geom_line() + ylab("Real agricultural GDP per capita growth rate (%)")
