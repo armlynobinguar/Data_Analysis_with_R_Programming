@@ -49,3 +49,30 @@ wb_api_json_get_df <- function(endpoint) {
 }
 
 wb_indicator_response <- wb_api_json_get_df("v2/indicator?format=json")
+
+wb_api_json_get_df <- function(endpoint) {
+  
+  # Preparing the URL 
+  url <- modify_url("http://api.worldbank.org", path = endpoint)
+  
+  # API requests
+  response <- GET(url)
+
+  # Tracking errors
+  if ( http_error(response) ){
+    print(status_code(response))
+    stop("Something went wrong.", call. = FALSE)
+  }
+    
+  if (http_type(response) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  
+  # Extracting content
+  json_text <- content(response, "text")
+
+  # Returning the content as plain text 
+  json_text
+}
+
+wb_indicator_json_text <- wb_api_json_get_df("v2/indicator?format=json")
