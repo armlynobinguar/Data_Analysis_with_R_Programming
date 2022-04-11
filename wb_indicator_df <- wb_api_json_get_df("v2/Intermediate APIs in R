@@ -62,3 +62,8 @@ wb_indicator_json_df_3 <- wb_api_json_get_df("v2/indicator",
                                              queries = list(format="json", page=3, per_page = 75))
 
 agriculture_categories <- gov_api_json("data/arms/category", queries = list(api_key = your_key))
+
+httpbin_response  <-  POST("http://httpbin.org/post", body = list(message = "this is a test", name = "authordq"))
+check_error  <-  http_error(httpbin_response)
+
+print(httpbin_response)
