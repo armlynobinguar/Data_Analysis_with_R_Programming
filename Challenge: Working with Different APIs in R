@@ -7,3 +7,12 @@ status
 
 the_joke <- content(response)
 the_joke
+
+response <- GET("http://api.dataatwork.org/v1/jobs/8fd068c8d9be73abfa678856177b6c40")
+response
+
+status <- status_code(response)
+status
+
+the_job <- httr::content(response)
+the_job
