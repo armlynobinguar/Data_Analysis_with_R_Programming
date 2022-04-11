@@ -58,3 +58,5 @@ wb_api_json_get_df <- function(endpoint, queries = list()) {
 }
 
 wb_indicator_df_with_param <- wb_api_json_get_df("v2/indicator", list(format="json"))
+wb_indicator_json_df_3 <- wb_api_json_get_df("v2/indicator", 
+                                             queries = list(format="json", page=3, per_page = 75))
