@@ -1,0 +1,1 @@
+wb_indicator_df <- wb_api_json_get_df("v2/indicator?format=json")
