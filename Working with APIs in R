@@ -11,3 +11,17 @@ wb_api_json_get_df <- function(endpoint) {
 }
 
 wb_country_url <- wb_api_json_get_df("v2/country")
+
+wb_api_json_get_df <- function(endpoint) {
+  
+  # Preparing the URL 
+  url <- modify_url("http://api.worldbank.org", path = endpoint)
+  
+  # API requests
+  response <- GET(url)
+  
+  # Returning the API Response
+  response
+}
+
+wb_indicator_response <- wb_api_json_get_df("v2/indicator?format=json")
