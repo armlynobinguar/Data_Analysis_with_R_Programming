@@ -92,3 +92,15 @@ properties <- c("area", "temp", "size", "storage", "method",
 
 # Import 5 observations from potatoes.txt: potatoes_fragment
 potatoes_fragment <- read_tsv("potatoes.txt", skip = 6, n_max = 5, col_names = properties)
+
+# readr is already loaded
+
+# Column names
+properties <- c("area", "temp", "size", "storage", "method",
+                "texture", "flavor", "moistness")
+
+# Import all data, but force all columns to be character: potatoes_char
+potatoes_char <- read_tsv("potatoes.txt", col_types = "cccccccc", col_names = properties)
+
+# Print out structure of potatoes_char
+str(potatoes_char)
