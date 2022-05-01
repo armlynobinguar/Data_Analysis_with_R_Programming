@@ -133,3 +133,11 @@ potatoes <- fread("potatoes.csv")
 
 # Print out potatoes
 potatoes
+
+# fread is already loaded
+
+# Import columns 6 and 8 of potatoes.csv: potatoes
+potatoes <- fread("potatoes.csv", select = c(6, 8))
+
+# Plot texture (x) and moistness (y) of potatoes
+plot(potatoes$texture, potatoes$moistness)
