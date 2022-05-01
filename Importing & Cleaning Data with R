@@ -83,3 +83,12 @@ potatoes <- read_delim("potatoes.txt", delim = "\t", col_names = properties)
 
 # Print out potatoes
 potatoes
+
+# readr is already loaded
+
+# Column names
+properties <- c("area", "temp", "size", "storage", "method",
+                "texture", "flavor", "moistness")
+
+# Import 5 observations from potatoes.txt: potatoes_fragment
+potatoes_fragment <- read_tsv("potatoes.txt", skip = 6, n_max = 5, col_names = properties)
