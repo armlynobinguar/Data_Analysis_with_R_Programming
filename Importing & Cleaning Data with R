@@ -141,3 +141,9 @@ potatoes <- fread("potatoes.csv", select = c(6, 8))
 
 # Plot texture (x) and moistness (y) of potatoes
 plot(potatoes$texture, potatoes$moistness)
+
+# Load the readxl package
+library(readxl)
+
+# Print the names of all worksheets
+excel_sheets("urbanpop.xlsx")
