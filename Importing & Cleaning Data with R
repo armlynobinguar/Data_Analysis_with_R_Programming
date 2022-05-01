@@ -124,3 +124,12 @@ hotdogs_factor <- read_tsv("hotdogs.txt",
 
 # Display the summary of hotdogs_factor
 summary(hotdogs_factor)
+
+# load the data.table package using library()
+library(data.table)
+
+# Import potatoes.csv with fread(): potatoes
+potatoes <- fread("potatoes.csv")
+
+# Print out potatoes
+potatoes
