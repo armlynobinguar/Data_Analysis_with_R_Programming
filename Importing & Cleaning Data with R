@@ -9,3 +9,9 @@ pools <- read.csv("swimming_pools.csv", stringsAsFactors = FALSE)
 
 # Check the structure of pools
 str(pools)
+
+# Import hotdogs.txt: hotdogs
+hotdogs <- read.delim("hotdogs.txt", header = FALSE)
+
+# Summarize hotdogs
+summary(hotdogs)
