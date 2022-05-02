@@ -264,3 +264,14 @@ countries <- readWorksheet(my_book, sheet = 2, startCol = 1, endCol = 1)
 
 # cbind() urbanpop_sel and countries together: selection
 selection <- cbind(countries, urbanpop_sel)
+
+# XLConnect is already available
+
+# Build connection to urbanpop.xlsx
+my_book <- loadWorkbook("urbanpop.xlsx")
+
+# Add a worksheet to my_book, named "data_summary"
+createSheet(my_book, "data_summary")
+
+# Use getSheets() on my_book
+getSheets(my_book)
